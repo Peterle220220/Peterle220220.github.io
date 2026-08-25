@@ -40,130 +40,154 @@ a{color:inherit; text-decoration:none}
 .wrap{max-width:var(--max); margin:0 auto; padding:0 24px}
 .eyebrow{font-size:.78rem; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); font-weight:600}
 
-/* nav / menu */
-header{position:sticky; top:0; z-index:50; backdrop-filter:blur(10px);
-  background:rgba(255,255,255,.82); border-bottom:1px solid var(--line)}
-nav{display:flex; align-items:center; justify-content:space-between; height:66px}
-.logo{font-family:'Space Grotesk'; font-weight:700; font-size:1.05rem}
-.logo span{color:var(--accent)}
-.navlinks{display:flex; gap:6px; align-items:center}
-.navlinks a{font-size:.92rem; color:var(--muted); font-weight:500; padding:8px 14px; border-radius:999px; transition:color .2s,background .2s}
-.navlinks a:hover{color:var(--ink); background:var(--bg-soft)}
-.navlinks a.active{color:var(--accent); background:#f0edff}
-.menu-btn{display:none; background:none; border:0; font-size:1.5rem; cursor:pointer; color:var(--ink)}
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Le Nam Phong — Business &amp; Data Analyst</title>
+<meta name="description" content="Le Nam Phong — Business Analyst / Data Analyst. Process mining, BPMN, process automation. MSc Data Analytics, QUT."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#25292c; --bg2:#2c3134; --panel:#31373b; --ink:#eef1f2; --muted:#9aa3a8;
+  --accent:#15c39a; --accent-d:#10a883; --line:rgba(255,255,255,.09);
+  --max:1120px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0; background:var(--bg); color:var(--ink);
+  font-family:'Poppins',system-ui,sans-serif; line-height:1.65; -webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{margin:0; font-weight:600; line-height:1.2}
+a{color:inherit; text-decoration:none}
+.wrap{max-width:var(--max); margin:0 auto; padding:0 26px}
+.accent{color:var(--accent)}
 
-.btn{display:inline-flex; align-items:center; gap:8px; padding:11px 20px; border-radius:999px; font-weight:600; font-size:.92rem; transition:transform .15s, box-shadow .2s, background .2s, border-color .2s}
-.btn-primary{background:var(--ink); color:#fff}
-.btn-primary:hover{transform:translateY(-2px); box-shadow:0 10px 24px -10px rgba(15,23,42,.5)}
-.btn-ghost{border:1px solid var(--line); color:var(--ink)}
-.btn-ghost:hover{border-color:var(--accent); color:var(--accent)}
+/* nav */
+header{position:sticky; top:0; z-index:60; background:rgba(30,34,37,.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--line)}
+nav{display:flex; align-items:center; justify-content:space-between; height:74px}
+.logo{font-weight:700; font-size:1.35rem; letter-spacing:.16em; display:flex; align-items:center; gap:2px}
+.logo .b{display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border:3px solid var(--accent); color:#fff; margin-right:8px; font-size:1.1rem}
+.navlinks{display:flex; gap:4px}
+.navlinks a{font-size:.82rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); font-weight:500; padding:10px 14px; transition:color .2s}
+.navlinks a:hover{color:#fff}
+.navlinks a.active{color:var(--accent)}
+.menu-btn{display:none; background:none; border:0; color:#fff; font-size:1.5rem; cursor:pointer}
 
-/* pages */
 .page{display:none; animation:fade .5s ease}
 .page.active{display:block}
-@keyframes fade{from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:none}}
-.section{padding:64px 0}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
-/* HOME */
-.home-hero{position:relative; overflow:hidden; padding:80px 0 64px}
-.home-hero:before{content:""; position:absolute; top:-160px; right:-140px; width:520px; height:520px;
-  background:radial-gradient(circle at 30% 30%,rgba(139,92,246,.20),transparent 62%),radial-gradient(circle at 70% 70%,rgba(91,75,230,.18),transparent 60%);
-  z-index:0; pointer-events:none}
-.home-grid{position:relative; z-index:1; display:grid; grid-template-columns:1fr 300px; gap:56px; align-items:center}
-.status{display:inline-flex; align-items:center; gap:8px; font-size:.82rem; color:var(--muted); background:var(--bg-soft); border:1px solid var(--line); padding:6px 14px; border-radius:999px; margin-bottom:22px}
-.dot{width:8px; height:8px; border-radius:50%; background:#22c55e; box-shadow:0 0 0 4px rgba(34,197,94,.15)}
-.home-grid h1{font-size:clamp(2.4rem,5.5vw,3.8rem); font-weight:700}
-.home-grid h1 .grad{background:linear-gradient(100deg,var(--accent),var(--accent-2)); -webkit-background-clip:text; background-clip:text; color:transparent}
-.home-grid .role{font-size:clamp(1rem,2.2vw,1.3rem); color:var(--muted); font-weight:500; margin:14px 0 0}
-.home-grid p.lead{max-width:560px; color:var(--muted); font-size:1.06rem; margin:20px 0 30px}
-.cta{display:flex; gap:12px; flex-wrap:wrap}
-.avatar{width:230px; height:230px; margin:0 auto; border-radius:28px; position:relative;
-  background:linear-gradient(140deg,var(--accent),var(--accent-2)); display:flex; align-items:center; justify-content:center;
-  box-shadow:0 30px 60px -30px rgba(91,75,230,.6)}
-.avatar span{font-family:'Space Grotesk'; font-weight:700; font-size:4rem; color:#fff; letter-spacing:.02em}
-.avatar small{position:absolute; bottom:-14px; left:50%; transform:translateX(-50%); background:#fff; border:1px solid var(--line);
-  color:var(--muted); font-size:.72rem; padding:4px 12px; border-radius:999px; white-space:nowrap}
+/* HERO / HOME */
+.hero{position:relative; padding:70px 0 84px; overflow:hidden}
+.hero:before{content:""; position:absolute; inset:0;
+  background:radial-gradient(1200px 500px at 78% 10%, rgba(21,195,154,.10), transparent 60%); pointer-events:none}
+.hcard{position:relative; background:rgba(20,23,25,.55); border:1px solid var(--line); border-radius:6px; padding:46px 44px}
+.hgrid{display:grid; grid-template-columns:1fr 340px; gap:48px; align-items:center}
+.bubble{position:relative; display:inline-block; background:var(--accent); color:#08110d; font-weight:700; padding:8px 20px; border-radius:4px; font-size:1.05rem}
+.bubble:after{content:""; position:absolute; left:26px; bottom:-9px; border:9px solid transparent; border-top-color:var(--accent); border-bottom:0}
+.subrole{letter-spacing:.34em; text-transform:uppercase; color:var(--muted); font-weight:500; margin:22px 0 18px; font-size:1.05rem}
+.divide{height:1px; background:var(--line); margin:0 0 26px; max-width:520px}
+.dl{display:grid; gap:14px; max-width:560px}
+.dl .row{display:grid; grid-template-columns:150px 1fr; gap:10px}
+.dl .k{font-weight:600; letter-spacing:.06em; font-size:.86rem; text-transform:uppercase; color:#cfd6d9}
+.dl .v{color:var(--muted)}
+.dl .v a:hover{color:var(--accent)}
+.cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:30px}
+.btn{display:inline-flex; align-items:center; gap:8px; padding:12px 22px; border-radius:3px; font-weight:500; font-size:.82rem; letter-spacing:.08em; text-transform:uppercase; transition:.2s}
+.btn-a{background:var(--accent); color:#08110d}
+.btn-a:hover{background:var(--accent-d)}
+.btn-g{border:1px solid var(--line); color:#fff}
+.btn-g:hover{border-color:var(--accent); color:var(--accent)}
+.photo{width:300px; height:340px; margin:0 auto; border:6px solid rgba(255,255,255,.06);
+  background:linear-gradient(160deg,#3b4247,#262b2e); display:flex; align-items:center; justify-content:center; position:relative}
+.photo b{font-size:4.4rem; font-weight:700; color:var(--accent); letter-spacing:.04em}
+.photo small{position:absolute; bottom:10px; left:0; right:0; text-align:center; color:var(--muted); font-size:.72rem}
 
-.bio{border-top:1px solid var(--line); margin-top:8px}
-.bio-grid{display:grid; grid-template-columns:1.5fr 1fr; gap:48px; align-items:start}
-.bio-grid p{color:var(--muted); font-size:1.05rem}
-.facts{display:grid; grid-template-columns:1fr 1fr; gap:14px}
-.fact{padding:18px; border:1px solid var(--line); border-radius:14px; background:var(--bg-soft)}
-.fact b{display:block; font-family:'Space Grotesk'; font-size:1.4rem}
-.fact small{color:var(--muted); font-size:.82rem}
-.home-explore{display:flex; gap:14px; flex-wrap:wrap; margin-top:40px; padding-top:34px; border-top:1px solid var(--line)}
-.xcard{flex:1; min-width:200px; border:1px solid var(--line); border-radius:14px; padding:18px 20px; transition:.2s; background:#fff}
-.xcard:hover{border-color:var(--accent); transform:translateY(-3px)}
-.xcard b{font-family:'Space Grotesk'; display:block; margin-bottom:2px}
-.xcard small{color:var(--muted)}
-.xcard .go{color:var(--accent); font-weight:600; font-size:.85rem}
+/* sections */
+.section{padding:76px 0}
+.sec-head{text-align:center; margin-bottom:52px}
+.sec-head .cap{color:var(--accent); letter-spacing:.28em; text-transform:uppercase; font-size:.8rem; font-weight:500}
+.sec-head h2{font-size:clamp(1.7rem,3.4vw,2.3rem); margin:10px 0 0}
+.sec-head .line{width:56px; height:3px; background:var(--accent); margin:16px auto 0}
 
-.section h2{font-size:clamp(1.7rem,3.5vw,2.2rem); font-weight:700; margin-bottom:10px}
-.section .sub{color:var(--muted); max-width:640px; margin-bottom:40px}
+/* about */
+.about{display:grid; grid-template-columns:1fr 1fr; gap:54px; align-items:start}
+.about p{color:var(--muted)}
+.about h3{margin-bottom:14px}
+.bar{margin-bottom:16px}
+.bar .t{display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:6px; letter-spacing:.04em}
+.bar .track{height:7px; background:rgba(255,255,255,.07); border-radius:6px; overflow:hidden}
+.bar .fill{height:100%; width:0; background:linear-gradient(90deg,var(--accent),#39d9b4); border-radius:6px; transition:width 1s ease}
 
-/* projects */
-.projects{display:grid; grid-template-columns:repeat(2,1fr); gap:20px}
-.card{border:1px solid var(--line); border-radius:var(--r); padding:26px; background:#fff; transition:transform .2s, box-shadow .25s, border-color .2s; display:flex; flex-direction:column}
-.card:hover{transform:translateY(-4px); box-shadow:0 20px 40px -24px rgba(15,23,42,.25); border-color:#d7d9e3}
-.card.feature{grid-column:1 / -1; background:linear-gradient(180deg,#faf9ff,#fff); border-color:#e7e3ff}
-.card .tag{font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); font-weight:600}
-.card h3{font-size:1.25rem; margin:10px 0 8px; font-weight:600}
-.card p{color:var(--muted); font-size:.96rem; margin:0 0 16px; flex:1}
-.metrics{display:flex; gap:26px; flex-wrap:wrap; margin:4px 0 18px}
-.metric b{font-family:'Space Grotesk'; font-size:1.6rem; display:block}
-.metric small{color:var(--muted); font-size:.8rem}
-.tech{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px}
-.tech span{font-size:.76rem; color:var(--muted); background:var(--chip); padding:4px 10px; border-radius:999px}
-.card .link{font-size:.9rem; font-weight:600; color:var(--accent); display:inline-flex; align-items:center; gap:6px; margin-top:auto}
-.card .link:hover{gap:10px}
+/* services */
+.svc{display:grid; grid-template-columns:repeat(4,1fr); gap:20px}
+.svc .box{background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:30px 24px; text-align:center; transition:.25s}
+.svc .box:hover{transform:translateY(-6px); border-color:var(--accent)}
+.svc .ic{width:64px; height:64px; margin:0 auto 18px; border-radius:50%; background:rgba(21,195,154,.12); color:var(--accent); display:flex; align-items:center; justify-content:center; font-size:1.7rem}
+.svc h4{font-size:1.05rem; margin-bottom:8px}
+.svc p{color:var(--muted); font-size:.9rem; margin:0}
 
-/* skills */
-.skillgroups{display:grid; grid-template-columns:repeat(3,1fr); gap:24px}
-.skillgroups h4{font-family:'Space Grotesk'; font-size:1rem; margin:0 0 14px}
-.chips{display:flex; flex-wrap:wrap; gap:8px}
-.chips span{font-size:.85rem; padding:7px 13px; border:1px solid var(--line); border-radius:10px; background:var(--bg-soft)}
+/* experience timeline */
+.tl{max-width:760px; margin:0 auto; position:relative}
+.tl:before{content:""; position:absolute; left:14px; top:6px; bottom:6px; width:2px; background:var(--line)}
+.tl .it{position:relative; padding:0 0 30px 52px}
+.tl .it:before{content:""; position:absolute; left:8px; top:5px; width:14px; height:14px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px rgba(21,195,154,.18)}
+.tl .when{color:var(--accent); font-size:.82rem; letter-spacing:.06em; font-weight:500}
+.tl h4{margin:4px 0 2px}
+.tl .org{color:#cfd6d9; font-size:.92rem}
+.tl p{color:var(--muted); font-size:.92rem; margin:8px 0 0}
 
-/* timeline */
-.tl-item{display:grid; grid-template-columns:180px 1fr; gap:28px; padding:22px 0; border-top:1px solid var(--line)}
-.tl-item:first-child{border-top:0}
-.tl-when{color:var(--muted); font-size:.9rem; font-weight:500}
-.tl-what b{font-family:'Space Grotesk'; font-size:1.1rem}
-.tl-what .org{color:var(--accent); font-weight:600; font-size:.95rem}
-.tl-what p{color:var(--muted); font-size:.95rem; margin:6px 0 0}
+/* portfolio */
+.port{display:grid; grid-template-columns:repeat(2,1fr); gap:20px}
+.pcard{background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:26px; transition:.25s; display:flex; flex-direction:column}
+.pcard:hover{transform:translateY(-5px); border-color:var(--accent)}
+.pcard.big{grid-column:1/-1}
+.pcard .tag{color:var(--accent); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; font-weight:500}
+.pcard h4{font-size:1.18rem; margin:9px 0 8px}
+.pcard p{color:var(--muted); font-size:.92rem; margin:0 0 14px; flex:1}
+.mets{display:flex; gap:26px; flex-wrap:wrap; margin-bottom:14px}
+.mets b{display:block; color:var(--accent); font-size:1.5rem; font-weight:700}
+.mets small{color:var(--muted); font-size:.78rem}
+.tech{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:14px}
+.tech span{font-size:.74rem; color:#cfd6d9; background:rgba(255,255,255,.06); padding:4px 10px; border-radius:3px}
+.pcard .go{color:var(--accent); font-weight:500; font-size:.82rem; letter-spacing:.08em; text-transform:uppercase; margin-top:auto}
 
 /* contact */
-.contact{text-align:center; padding:96px 0}
-.contact h2{font-size:clamp(1.9rem,4vw,2.6rem)}
+.contact{text-align:center; padding:90px 0}
+.contact h2{font-size:clamp(1.8rem,3.6vw,2.4rem)}
 .contact p{color:var(--muted); max-width:520px; margin:14px auto 30px}
 .social{display:flex; gap:14px; justify-content:center; flex-wrap:wrap}
 
-footer{border-top:1px solid var(--line); padding:26px 0; color:var(--muted); font-size:.85rem}
+footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; color:var(--muted); font-size:.82rem}
 
-@media(max-width:860px){
-  .home-grid{grid-template-columns:1fr; gap:34px}
-  .avatar{order:-1}
-  .bio-grid{grid-template-columns:1fr; gap:26px}
-  .facts{grid-template-columns:1fr 1fr}
-  .projects{grid-template-columns:1fr}
-  .skillgroups{grid-template-columns:1fr}
-  .tl-item{grid-template-columns:1fr; gap:6px}
-  .navlinks{position:fixed; inset:66px 0 auto 0; background:#fff; flex-direction:column; align-items:stretch; gap:0; padding:8px 16px 18px; border-bottom:1px solid var(--line); display:none}
+@media(max-width:900px){
+  .hgrid{grid-template-columns:1fr; gap:34px}
+  .photo{order:-1}
+  .about{grid-template-columns:1fr; gap:32px}
+  .svc{grid-template-columns:1fr 1fr}
+  .port{grid-template-columns:1fr}
+  .dl .row{grid-template-columns:130px 1fr}
+  .navlinks{position:fixed; inset:74px 0 auto 0; background:#1e2225; flex-direction:column; padding:8px 20px 18px; border-bottom:1px solid var(--line); display:none}
   .navlinks.open{display:flex}
-  .navlinks a{padding:12px 10px}
+  .navlinks a{padding:13px 6px}
   .menu-btn{display:block}
 }
+@media(max-width:560px){ .svc{grid-template-columns:1fr} .hcard{padding:30px 22px} }
 </style>
 </head>
 <body>
 <header>
   <div class="wrap">
     <nav>
-      <a class="logo" href="#home" data-nav="home">Nam Phong<span>.</span></a>
+      <a class="logo" href="#home" data-nav="home"><span class="b">P</span>HONG</a>
       <div class="navlinks" id="nav">
         <a href="#home" data-nav="home">Home</a>
-        <a href="#projects" data-nav="projects">Projects</a>
-        <a href="#skills" data-nav="skills">Skills</a>
+        <a href="#about" data-nav="about">About</a>
+        <a href="#services" data-nav="services">Services</a>
         <a href="#experience" data-nav="experience">Experience</a>
+        <a href="#portfolio" data-nav="portfolio">Portfolio</a>
         <a href="#contact" data-nav="contact">Contact</a>
       </div>
       <button class="menu-btn" id="menu" aria-label="Menu">☰</button>
@@ -172,169 +196,160 @@ footer{border-top:1px solid var(--line); padding:26px 0; color:var(--muted); fon
 </header>
 
 <main>
-  <!-- ================= HOME ================= -->
+  <!-- HOME -->
   <section class="page active" data-page="home">
-    <div class="home-hero">
+    <div class="hero">
       <div class="wrap">
-        <div class="home-grid">
-          <div>
-            <div class="status"><span class="dot"></span> Open to work · Remote now, Hanoi from Jan 2027</div>
-            <h1>Hi, I'm Le Nam Phong<br><span class="grad">Business &amp; Data Analyst</span></h1>
-            <p class="role">Process Mining · BPMN · Process Automation</p>
-            <p class="lead">I turn messy operational processes into clear, data-backed improvements — mapping how work really flows, mining event logs to find where it breaks, and building the tools that fix it.</p>
-            <div class="cta">
-              <a class="btn btn-primary" href="#projects" data-nav="projects">See my work →</a>
-              <a class="btn btn-ghost" href="mailto:lenamphong2000@gmail.com">Email me</a>
+        <div class="hcard">
+          <div class="hgrid">
+            <div>
+              <span class="bubble">Hi!</span>
+              <div class="subrole">Business &amp; Data Analyst</div>
+              <div class="divide"></div>
+              <div class="dl">
+                <div class="row"><div class="k">Name</div><div class="v">Le Nam Phong</div></div>
+                <div class="row"><div class="k">Role</div><div class="v">Business / Data Analyst</div></div>
+                <div class="row"><div class="k">Focus</div><div class="v">Process Mining · BPMN · Automation</div></div>
+                <div class="row"><div class="k">Phone</div><div class="v">+84 969 242 972 · +61 431 228 037</div></div>
+                <div class="row"><div class="k">Location</div><div class="v">Brisbane, AU · Hanoi from Jan 2027</div></div>
+                <div class="row"><div class="k">E-mail</div><div class="v"><a href="mailto:lenamphong2000@gmail.com">lenamphong2000@gmail.com</a></div></div>
+                <div class="row"><div class="k">GitHub</div><div class="v"><a href="https://github.com/Peterle220220" target="_blank" rel="noopener">github.com/Peterle220220</a></div></div>
+              </div>
+              <div class="cta">
+                <a class="btn btn-a" href="#portfolio" data-nav="portfolio">View portfolio</a>
+                <a class="btn btn-g" href="mailto:lenamphong2000@gmail.com">Hire me</a>
+              </div>
             </div>
-          </div>
-          <div class="avatar"><span>LP</span><small>Replace with your photo</small></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section bio">
-      <div class="wrap">
-        <div class="bio-grid">
-          <div>
-            <p class="eyebrow">About me</p>
-            <h2 style="margin:8px 0 18px">Between the business and the data</h2>
-            <p>With two years in import/export operations and a <b>Master of Data Analytics from QUT (Australia)</b>, I sit comfortably where business questions meet data. My focus is <b>process mining and business process automation</b> — using Signavio, Celonis and Disco alongside Python to move organisations from <i>"we think there's a bottleneck"</i> to <i>"here is exactly where it is, how much it costs, and what to do about it."</i></p>
-            <p>Right now I'm in Brisbane, relocating to Hanoi from January 2027 — open to remote work today and on-site there.</p>
-          </div>
-          <div class="facts">
-            <div class="fact"><b>2 yrs</b><small>Import/export operations</small></div>
-            <div class="fact"><b>5.72/7.0</b><small>MSc Data Analytics GPA</small></div>
-            <div class="fact"><b>183k</b><small>Largest event log analysed</small></div>
-            <div class="fact"><b>3</b><small>Languages spoken</small></div>
-          </div>
-        </div>
-
-        <div class="home-explore">
-          <a class="xcard" href="#projects" data-nav="projects"><b>Projects</b><small>Process mining, ops platforms &amp; cloud</small><br><span class="go">Explore →</span></a>
-          <a class="xcard" href="#skills" data-nav="skills"><b>Skills</b><small>Methods &amp; tools I work with</small><br><span class="go">View →</span></a>
-          <a class="xcard" href="#experience" data-nav="experience"><b>Experience</b><small>Education &amp; work history</small><br><span class="go">View →</span></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= PROJECTS ================= -->
-  <section class="page" data-page="projects">
-    <div class="section">
-      <div class="wrap">
-        <p class="eyebrow">Selected work</p>
-        <h2>Projects</h2>
-        <p class="sub">Case studies across process mining, operations platforms and cloud engineering. Full write-ups and code on GitHub.</p>
-        <div class="projects">
-          <div class="card feature">
-            <span class="tag">Process Mining · Flagship</span>
-            <h3>Invoice-Clearing Bottleneck (Purchase-to-Pay)</h3>
-            <p>Mined a real 1.6M-event procurement log with Signavio, Celonis, Disco and Python to find where invoices stall between receipt and clearing — turning a vague "invoices are slow" complaint into a specific, costed target.</p>
-            <div class="metrics">
-              <div class="metric"><b>25%</b><small>invoices &gt; 70 days to clear</small></div>
-              <div class="metric"><b>~80%</b><small>of delay in one spend area</small></div>
-              <div class="metric"><b>3 vendors</b><small>drove ~48% of slow cases</small></div>
-            </div>
-            <div class="tech"><span>Signavio</span><span>Celonis</span><span>Disco</span><span>Python / pandas</span><span>BPMN</span></div>
-            <a class="link" href="https://github.com/Peterle220220/process-mining-invoice-bottleneck" target="_blank" rel="noopener">Read case study →</a>
-          </div>
-          <div class="card">
-            <span class="tag">Operations · Capstone</span>
-            <h3>Brisbane 2032 — Games Operations Platform</h3>
-            <p>Team-built platform for the 2032 Games. I owned the operations dashboard and the crowd-flow model that predicts transport bottlenecks after events and recommends buses, medical and security.</p>
-            <div class="tech"><span>Next.js</span><span>TypeScript</span><span>Go</span><span>PostgreSQL</span><span>Docker</span></div>
-            <a class="link" href="https://github.com/Peterle220220/Olympic" target="_blank" rel="noopener">View project →</a>
-          </div>
-          <div class="card">
-            <span class="tag">Cloud Engineering</span>
-            <h3>Cloud Video Transcoding Platform</h3>
-            <p>Five microservices on AWS ECS Fargate with FFmpeg transcoding, queue-driven custom-metric autoscaling (1→5 tasks), dead-letter queues and fully reproducible Terraform infrastructure.</p>
-            <div class="tech"><span>AWS</span><span>ECS · SQS · Lambda</span><span>Terraform</span><span>Docker</span></div>
-            <a class="link" href="https://github.com/Peterle220220/video-api" target="_blank" rel="noopener">View project →</a>
-          </div>
-          <div class="card">
-            <span class="tag">NLP</span>
-            <h3>Information Retrieval &amp; Ranking</h3>
-            <p>Information-retrieval and text-ranking models built and evaluated in Python — TF·IDF and BM25 scoring, plus a BM25-driven retrieval step for RAG prompt generation.</p>
-            <div class="tech"><span>Python</span><span>Information Retrieval</span><span>Text mining</span></div>
-            <a class="link" href="https://github.com/Peterle220220/nlp-information-retrieval" target="_blank" rel="noopener">View project →</a>
-          </div>
-          <div class="card">
-            <span class="tag">Process Automation</span>
-            <h3>Business Process Automation</h3>
-            <p>Modelled and automated an end-to-end business process from an as-is model to an executable to-be workflow on a BPM engine — forms, happy path and exception handling included.</p>
-            <div class="tech"><span>BPMN 2.0</span><span>Bonita</span><span>Process automation</span></div>
-            <a class="link" href="https://github.com/Peterle220220/business-process-automation" target="_blank" rel="noopener">View project →</a>
+            <div class="photo"><b>LP</b><small>Replace with your photo</small></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= SKILLS ================= -->
-  <section class="page" data-page="skills">
-    <div class="section">
-      <div class="wrap">
-        <p class="eyebrow">Toolkit</p>
-        <h2>Skills &amp; Tools</h2>
-        <p class="sub">The methods and technology I use to analyse, model and improve processes.</p>
-        <div class="skillgroups">
-          <div><h4>Process &amp; Analysis</h4><div class="chips"><span>BPMN 2.0</span><span>Signavio</span><span>Celonis</span><span>Disco</span><span>Process automation</span><span>Requirements elicitation</span></div></div>
-          <div><h4>Data &amp; Programming</h4><div class="chips"><span>Python</span><span>SQL</span><span>pandas</span><span>Machine learning</span><span>C#</span><span>JavaScript</span><span>Data visualisation</span></div></div>
-          <div><h4>Platforms &amp; Delivery</h4><div class="chips"><span>AWS</span><span>Docker</span><span>Git</span><span>Jira</span><span>Agile</span></div></div>
+  <!-- ABOUT -->
+  <section class="page" data-page="about">
+    <div class="section"><div class="wrap">
+      <div class="sec-head"><div class="cap">Get to know me</div><h2>About Me</h2><div class="line"></div></div>
+      <div class="about">
+        <div>
+          <h3>Turning messy processes into clear decisions</h3>
+          <p>With two years in import/export operations and a Master of Data Analytics from QUT (Australia), I sit where business questions meet data. I map how work actually flows, mine event logs to find where it breaks, and build the tools and automation that fix it.</p>
+          <p>My focus is <span class="accent">process mining and business process automation</span> — using Signavio, Celonis and Disco alongside Python to move teams from guesswork to evidence. Open to remote work now and relocating to Hanoi from January 2027.</p>
+        </div>
+        <div>
+          <h3 style="margin-bottom:20px">My Skills</h3>
+          <div class="bar"><div class="t"><span>BPMN &amp; Process Modelling</span><span>90%</span></div><div class="track"><div class="fill" data-w="90%"></div></div></div>
+          <div class="bar"><div class="t"><span>Process Mining (Signavio · Celonis)</span><span>85%</span></div><div class="track"><div class="fill" data-w="85%"></div></div></div>
+          <div class="bar"><div class="t"><span>Python &amp; Data Analysis</span><span>82%</span></div><div class="track"><div class="fill" data-w="82%"></div></div></div>
+          <div class="bar"><div class="t"><span>SQL</span><span>75%</span></div><div class="track"><div class="fill" data-w="75%"></div></div></div>
+          <div class="bar"><div class="t"><span>Process Automation</span><span>80%</span></div><div class="track"><div class="fill" data-w="80%"></div></div></div>
+          <div class="bar"><div class="t"><span>Dashboards &amp; Data Viz</span><span>78%</span></div><div class="track"><div class="fill" data-w="78%"></div></div></div>
         </div>
       </div>
-    </div>
+    </div></div>
   </section>
 
-  <!-- ================= EXPERIENCE ================= -->
+  <!-- SERVICES -->
+  <section class="page" data-page="services">
+    <div class="section"><div class="wrap">
+      <div class="sec-head"><div class="cap">What I do</div><h2>Services</h2><div class="line"></div></div>
+      <div class="svc">
+        <div class="box"><div class="ic">◎</div><h4>Process Mining</h4><p>Discover, measure and diagnose how your processes really run from event-log data.</p></div>
+        <div class="box"><div class="ic">▤</div><h4>Business Analysis</h4><p>Requirements, BPMN modelling and as-is / to-be process design that stakeholders trust.</p></div>
+        <div class="box"><div class="ic">⚙</div><h4>Process Automation</h4><p>Turn improved processes into executable, automated workflows on a BPM engine.</p></div>
+        <div class="box"><div class="ic">▦</div><h4>Dashboards &amp; Reporting</h4><p>Python &amp; SQL analytics and dashboards that make bottlenecks and KPIs visible.</p></div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- EXPERIENCE -->
   <section class="page" data-page="experience">
-    <div class="section">
-      <div class="wrap">
-        <p class="eyebrow">Background</p>
-        <h2>Education &amp; Experience</h2>
-        <div style="margin-top:34px">
-          <div class="tl-item"><div class="tl-when">2024 – 2026</div><div class="tl-what"><b>MSc, Data Analytics</b> · <span class="org">Queensland University of Technology, Australia</span><p>GPA 5.72/7.0. High Distinction in Business Process Analytics, Business Process Automation, Cloud Computing and the IT Industry Project.</p></div></div>
-          <div class="tl-item"><div class="tl-when">2021 – 2023</div><div class="tl-what"><b>Import &amp; Export Officer</b> · <span class="org">Ngan Hanh Plastic &amp; Packaging JSC</span><p>Handled 130–150 commercial contracts per year across suppliers, warehouse and finance; managed inventory and customs; traced stock variances back to their root cause in the process.</p></div></div>
-          <div class="tl-item"><div class="tl-when">2019 – 2021</div><div class="tl-what"><b>BBus, Logistics &amp; Supply Chain Management</b> · <span class="org">RMIT University, Vietnam</span><p>Recognised by the Chartered Institute of Logistics and Transport.</p></div></div>
-          <div class="tl-item"><div class="tl-when">Languages</div><div class="tl-what"><b>Vietnamese · English · Japanese</b><p>Vietnamese (native) · English (IELTS 6.0, TOEIC 795) · Japanese (JLPT N3).</p></div></div>
-        </div>
+    <div class="section"><div class="wrap">
+      <div class="sec-head"><div class="cap">My journey</div><h2>Experience &amp; Education</h2><div class="line"></div></div>
+      <div class="tl">
+        <div class="it"><div class="when">2024 – 2026</div><h4>MSc, Data Analytics</h4><div class="org">Queensland University of Technology, Australia</div><p>GPA 5.72/7.0. High Distinction in Business Process Analytics, Business Process Automation, Cloud Computing and the IT Industry Project.</p></div>
+        <div class="it"><div class="when">2021 – 2023</div><h4>Import &amp; Export Officer</h4><div class="org">Ngan Hanh Plastic &amp; Packaging JSC</div><p>Handled 130–150 commercial contracts per year across suppliers, warehouse and finance; managed inventory and customs; traced stock variances back to their root cause in the process.</p></div>
+        <div class="it"><div class="when">2019 – 2021</div><h4>BBus, Logistics &amp; Supply Chain Management</h4><div class="org">RMIT University, Vietnam</div><p>Recognised by the Chartered Institute of Logistics and Transport.</p></div>
+        <div class="it"><div class="when">Languages</div><h4>Vietnamese · English · Japanese</h4><p>Vietnamese (native) · English (IELTS 6.0, TOEIC 795) · Japanese (JLPT N3).</p></div>
       </div>
-    </div>
+    </div></div>
   </section>
 
-  <!-- ================= CONTACT ================= -->
-  <section class="page" data-page="contact">
-    <div class="contact">
-      <div class="wrap">
-        <p class="eyebrow">Contact</p>
-        <h2>Let's talk about process &amp; data</h2>
-        <p>Open to Business Analyst, Data Analyst and Process / BPM Analyst roles — remote now, on-site in Hanoi from January 2027.</p>
-        <div class="social">
-          <a class="btn btn-primary" href="mailto:lenamphong2000@gmail.com">lenamphong2000@gmail.com</a>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/phongnamle/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="btn btn-ghost" href="https://github.com/Peterle220220" target="_blank" rel="noopener">GitHub</a>
+  <!-- PORTFOLIO -->
+  <section class="page" data-page="portfolio">
+    <div class="section"><div class="wrap">
+      <div class="sec-head"><div class="cap">Selected work</div><h2>Portfolio</h2><div class="line"></div></div>
+      <div class="port">
+        <div class="pcard big">
+          <span class="tag">Process Mining · Flagship</span>
+          <h4>Invoice-Clearing Bottleneck (Purchase-to-Pay)</h4>
+          <p>Mined a real 1.6M-event procurement log with Signavio, Celonis, Disco and Python to find where invoices stall — turning a vague "invoices are slow" complaint into a specific, costed target.</p>
+          <div class="mets"><div><b>25%</b><small>invoices &gt; 70 days</small></div><div><b>~80%</b><small>delay in one spend area</small></div><div><b>3</b><small>vendors drove ~48%</small></div></div>
+          <div class="tech"><span>Signavio</span><span>Celonis</span><span>Disco</span><span>Python</span><span>BPMN</span></div>
+          <a class="go" href="https://github.com/Peterle220220/process-mining-invoice-bottleneck" target="_blank" rel="noopener">Read case study →</a>
+        </div>
+        <div class="pcard">
+          <span class="tag">Operations · Capstone</span>
+          <h4>Brisbane 2032 — Games Operations Platform</h4>
+          <p>Owned the operations dashboard and crowd-flow model that predicts transport bottlenecks after events and recommends buses, medical and security.</p>
+          <div class="tech"><span>Next.js</span><span>Go</span><span>PostgreSQL</span><span>Docker</span></div>
+          <a class="go" href="https://github.com/Peterle220220/Olympic" target="_blank" rel="noopener">View →</a>
+        </div>
+        <div class="pcard">
+          <span class="tag">Cloud Engineering</span>
+          <h4>Cloud Video Transcoding Platform</h4>
+          <p>Five AWS microservices with FFmpeg, custom-metric autoscaling (1→5 tasks), dead-letter queues and full Terraform infrastructure.</p>
+          <div class="tech"><span>AWS</span><span>Terraform</span><span>Docker</span><span>React</span></div>
+          <a class="go" href="https://github.com/Peterle220220/video-api" target="_blank" rel="noopener">View →</a>
+        </div>
+        <div class="pcard">
+          <span class="tag">NLP</span>
+          <h4>Information Retrieval &amp; Ranking</h4>
+          <p>TF·IDF and BM25 retrieval/ranking models built and evaluated in Python, plus BM25-driven retrieval for RAG prompts.</p>
+          <div class="tech"><span>Python</span><span>IR</span><span>Text mining</span></div>
+          <a class="go" href="https://github.com/Peterle220220/nlp-information-retrieval" target="_blank" rel="noopener">View →</a>
+        </div>
+        <div class="pcard">
+          <span class="tag">Process Automation</span>
+          <h4>Business Process Automation</h4>
+          <p>Modelled and automated a process from as-is to an executable to-be workflow on a BPM engine.</p>
+          <div class="tech"><span>BPMN 2.0</span><span>Bonita</span></div>
+          <a class="go" href="https://github.com/Peterle220220/business-process-automation" target="_blank" rel="noopener">View →</a>
         </div>
       </div>
-    </div>
+    </div></div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="page" data-page="contact">
+    <div class="contact"><div class="wrap">
+      <div class="cap accent" style="letter-spacing:.28em;text-transform:uppercase;font-size:.8rem">Get in touch</div>
+      <h2 style="margin-top:10px">Let's talk about process &amp; data</h2>
+      <p>Open to Business Analyst, Data Analyst and Process / BPM Analyst roles — remote now, on-site in Hanoi from January 2027.</p>
+      <div class="social">
+        <a class="btn btn-a" href="mailto:lenamphong2000@gmail.com">Email me</a>
+        <a class="btn btn-g" href="https://www.linkedin.com/in/phongnamle/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-g" href="https://github.com/Peterle220220" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div></div>
   </section>
 </main>
 
-<footer><div class="wrap">© 2026 Le Nam Phong — Business &amp; Data Analyst</div></footer>
+<footer>© 2026 Le Nam Phong · Business &amp; Data Analyst</footer>
 
 <script>
 const pages=document.querySelectorAll('.page');
-const links=document.querySelectorAll('[data-nav]');
 const nav=document.getElementById('nav');
 function show(id){
   if(!document.querySelector('.page[data-page="'+id+'"]')) id='home';
   pages.forEach(p=>p.classList.toggle('active',p.dataset.page===id));
   document.querySelectorAll('.navlinks a').forEach(a=>a.classList.toggle('active',a.dataset.nav===id));
   window.scrollTo({top:0,behavior:'instant'});
+  if(id==='about'){document.querySelectorAll('#about .fill,.page[data-page=about] .fill').forEach(f=>{f.style.width='0';requestAnimationFrame(()=>requestAnimationFrame(()=>f.style.width=f.dataset.w));});}
 }
-links.forEach(a=>a.addEventListener('click',e=>{
-  e.preventDefault(); const id=a.dataset.nav;
-  history.pushState(null,'','#'+id); nav.classList.remove('open'); show(id);
+document.querySelectorAll('[data-nav]').forEach(a=>a.addEventListener('click',e=>{
+  e.preventDefault(); const id=a.dataset.nav; history.pushState(null,'','#'+id); nav.classList.remove('open'); show(id);
 }));
 addEventListener('popstate',()=>show(location.hash.replace('#','')||'home'));
 document.getElementById('menu').addEventListener('click',()=>nav.classList.toggle('open'));
