@@ -35,9 +35,9 @@ nav{display:flex; align-items:center; justify-content:space-between; height:74px
 .navlinks a.active{color:var(--accent)}
 .menu-btn{display:none; background:none; border:0; color:var(--slate); font-size:1.5rem; cursor:pointer}
 
-.page{display:none; animation:fade .5s ease}
-.page.active{display:block}
-@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.page{display:block; scroll-margin-top:74px}
+.reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease}
+.reveal.in{opacity:1; transform:none}
 
 /* HERO / HOME — gray-blue band */
 .hero{position:relative; background:linear-gradient(160deg,#33414c,#28323a); padding:78px 0 90px; overflow:hidden}
@@ -160,7 +160,7 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
 
 <main>
   <!-- HOME -->
-  <section class="page active" data-page="home">
+  <section class="page" id="home" data-page="home">
     <div class="hero">
       <div class="wrap">
         <div class="hcard">
@@ -173,7 +173,7 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
                 <div class="row"><div class="k">Name</div><div class="v">Le Nam Phong</div></div>
                 <div class="row"><div class="k">D.O.B</div><div class="v">DD–MM–YYYY</div></div>
                 <div class="row"><div class="k">Phone</div><div class="v">+84 969 242 972</div></div>
-                <div class="row"><div class="k""k">Address</div><div class="v">Hanoi, Vietnam</div></div>
+                <div class="row"><div class="k">Address</div><div class="v">Hanoi, Vietnam</div></div>
                 <div class="row"><div class="k">E-mail</div><div class="v"><a href="mailto:lenamphong2000@gmail.com">lenamphong2000@gmail.com</a></div></div>
                 <div class="row"><div class="k">Website</div><div class="v"><a href="https://peterle220220.github.io" target="_blank" rel="noopener">peterle220220.github.io</a></div></div>
               </div>
@@ -190,7 +190,7 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
   </section>
 
   <!-- ABOUT -->
-  <section class="page" data-page="about">
+  <section class="page" id="about" data-page="about">
     <div class="section"><div class="wrap">
       <div class="sec-head"><div class="cap">Get to know me</div><h2>About Me</h2><div class="line"></div></div>
       <div class="about">
@@ -213,7 +213,7 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
   </section>
 
   <!-- SERVICES -->
-  <section class="page" data-page="services">
+  <section class="page" id="services" data-page="services">
     <div class="section"><div class="wrap">
       <div class="sec-head"><div class="cap">What I do</div><h2>Services</h2><div class="line"></div></div>
       <div class="svc">
@@ -226,7 +226,7 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
   </section>
 
   <!-- EXPERIENCE -->
-  <section class="page" data-page="experience">
+  <section class="page" id="experience" data-page="experience">
     <div class="section"><div class="wrap">
       <div class="sec-head"><div class="cap">My journey</div><h2>Experience &amp; Education</h2><div class="line"></div></div>
       <div class="tl">
@@ -239,7 +239,7 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
   </section>
 
   <!-- PORTFOLIO -->
-  <section class="page" data-page="portfolio">
+  <section class="page" id="portfolio" data-page="portfolio">
     <div class="section"><div class="wrap">
       <div class="sec-head"><div class="cap">Selected work</div><h2>Portfolio</h2><div class="line"></div></div>
       <div class="port">
@@ -284,7 +284,7 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
   </section>
 
   <!-- CONTACT -->
-  <section class="page" data-page="contact">
+  <section class="page" id="contact" data-page="contact">
     <div class="contact"><div class="wrap">
       <div class="cap accent" style="letter-spacing:.28em;text-transform:uppercase;font-size:.8rem">Get in touch</div>
       <h2 style="margin-top:10px">Let's talk about process &amp; data</h2>
@@ -301,21 +301,47 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
 <footer>© 2026 Le Nam Phong · Business &amp; Data Analyst</footer>
 
 <script>
-const pages=document.querySelectorAll('.page');
 const nav=document.getElementById('nav');
-function show(id){
-  if(!document.querySelector('.page[data-page="'+id+'"]')) id='home';
-  pages.forEach(p=>p.classList.toggle('active',p.dataset.page===id));
-  document.querySelectorAll('.navlinks a').forEach(a=>a.classList.toggle('active',a.dataset.nav===id));
-  window.scrollTo({top:0,behavior:'instant'});
-  if(id==='about'){document.querySelectorAll('.page[data-page=about] .fill').forEach(f=>{f.style.width='0';requestAnimationFrame(()=>requestAnimationFrame(()=>f.style.width=f.dataset.w));});}
-}
+const links=document.querySelectorAll('.navlinks a');
+
+/* smooth-scroll to a section when a nav link is clicked */
 document.querySelectorAll('[data-nav]').forEach(a=>a.addEventListener('click',e=>{
-  e.preventDefault(); const id=a.dataset.nav; history.pushState(null,'','#'+id); nav.classList.remove('open'); show(id);
+  const id=a.dataset.nav; const el=document.getElementById(id);
+  if(el){
+    e.preventDefault();
+    nav.classList.remove('open');
+    el.scrollIntoView({behavior:'smooth',block:'start'});
+    history.replaceState(null,'','#'+id);
+  }
 }));
-addEventListener('popstate',()=>show(location.hash.replace('#','')||'home'));
+
+/* mobile menu toggle */
 document.getElementById('menu').addEventListener('click',()=>nav.classList.toggle('open'));
-show(location.hash.replace('#','')||'home');
+
+/* scroll-spy: highlight the nav link for the section in view */
+const spy=new IntersectionObserver(entries=>{
+  entries.forEach(en=>{ if(en.isIntersecting){
+    const id=en.target.id;
+    links.forEach(a=>a.classList.toggle('active',a.dataset.nav===id));
+  }});
+},{rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('.page').forEach(s=>spy.observe(s));
+
+/* animate the About skill bars the first time they scroll into view */
+const about=document.getElementById('about');
+if(about){
+  const bars=about.querySelectorAll('.fill');
+  const bo=new IntersectionObserver(ents=>{
+    ents.forEach(en=>{ if(en.isIntersecting){
+      bars.forEach(f=>f.style.width=f.dataset.w);
+      bo.disconnect();
+    }});
+  },{threshold:.25});
+  bo.observe(about);
+}
+
+/* if the page opens with a hash, jump to that section */
+if(location.hash){ const el=document.getElementById(location.hash.slice(1)); if(el) setTimeout(()=>el.scrollIntoView({block:'start'}),0); }
 </script>
 </body>
 </html>
