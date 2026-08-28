@@ -10,82 +10,86 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#25292c; --bg2:#2c3134; --panel:#31373b; --ink:#eef1f2; --muted:#9aa3a8;
-  --accent:#15c39a; --accent-d:#10a883; --line:rgba(255,255,255,.09);
+  --bg:#ffffff; --bg2:#eef2f5; --ink:#26333d; --muted:#5f6f7a;
+  --slate:#2f3b45; --accent:#15c39a; --accent-d:#10a883;
+  --line:#e4e9ed;
   --max:1120px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0; background:var(--bg); color:var(--ink);
   font-family:'Poppins',system-ui,sans-serif; line-height:1.65; -webkit-font-smoothing:antialiased}
-h1,h2,h3,h4{margin:0; font-weight:600; line-height:1.2}
+h1,h2,h3,h4{margin:0; font-weight:600; line-height:1.2; color:var(--ink)}
 a{color:inherit; text-decoration:none}
 .wrap{max-width:var(--max); margin:0 auto; padding:0 26px}
 .accent{color:var(--accent)}
 
 /* nav */
-header{position:sticky; top:0; z-index:60; background:rgba(30,34,37,.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--line)}
+header{position:sticky; top:0; z-index:60; background:rgba(255,255,255,.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--line)}
 nav{display:flex; align-items:center; justify-content:space-between; height:74px}
-.logo{font-weight:700; font-size:1.35rem; letter-spacing:.16em; display:flex; align-items:center; gap:2px}
-.logo .b{display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border:3px solid var(--accent); color:#fff; margin-right:8px; font-size:1.1rem}
+.logo{font-weight:700; font-size:1.35rem; letter-spacing:.16em; display:flex; align-items:center; gap:2px; color:var(--slate)}
+.logo .b{display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border:3px solid var(--accent); color:var(--accent); margin-right:8px; font-size:1.1rem}
 .navlinks{display:flex; gap:4px}
 .navlinks a{font-size:.82rem; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); font-weight:500; padding:10px 14px; transition:color .2s}
-.navlinks a:hover{color:#fff}
+.navlinks a:hover{color:var(--slate)}
 .navlinks a.active{color:var(--accent)}
-.menu-btn{display:none; background:none; border:0; color:#fff; font-size:1.5rem; cursor:pointer}
+.menu-btn{display:none; background:none; border:0; color:var(--slate); font-size:1.5rem; cursor:pointer}
 
 .page{display:none; animation:fade .5s ease}
 .page.active{display:block}
 @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 
-/* HERO / HOME */
-.hero{position:relative; padding:70px 0 84px; overflow:hidden}
+/* HERO / HOME — gray-blue band */
+.hero{position:relative; background:linear-gradient(160deg,#33414c,#28323a); padding:78px 0 90px; overflow:hidden}
 .hero:before{content:""; position:absolute; inset:0;
-  background:radial-gradient(1200px 500px at 78% 10%, rgba(21,195,154,.10), transparent 60%); pointer-events:none}
-.hcard{position:relative; background:rgba(20,23,25,.55); border:1px solid var(--line); border-radius:6px; padding:46px 44px}
-.hgrid{display:grid; grid-template-columns:1fr 340px; gap:48px; align-items:center}
+  background:radial-gradient(1100px 460px at 82% 8%, rgba(21,195,154,.16), transparent 60%); pointer-events:none}
+.hcard{position:relative}
+.hgrid{display:grid; grid-template-columns:1fr 320px; gap:56px; align-items:center}
 .bubble{position:relative; display:inline-block; background:var(--accent); color:#08110d; font-weight:700; padding:8px 20px; border-radius:4px; font-size:1.05rem}
 .bubble:after{content:""; position:absolute; left:26px; bottom:-9px; border:9px solid transparent; border-top-color:var(--accent); border-bottom:0}
-.subrole{letter-spacing:.34em; text-transform:uppercase; color:var(--muted); font-weight:500; margin:22px 0 18px; font-size:1.05rem}
-.divide{height:1px; background:var(--line); margin:0 0 26px; max-width:520px}
+.subrole{letter-spacing:.34em; text-transform:uppercase; color:#aeb9c1; font-weight:500; margin:22px 0 18px; font-size:1.05rem}
+.divide{height:1px; background:rgba(255,255,255,.16); margin:0 0 26px; max-width:520px}
 .dl{display:grid; gap:14px; max-width:560px}
 .dl .row{display:grid; grid-template-columns:150px 1fr; gap:10px}
-.dl .k{font-weight:600; letter-spacing:.06em; font-size:.86rem; text-transform:uppercase; color:#cfd6d9}
-.dl .v{color:var(--muted)}
+.dl .k{font-weight:600; letter-spacing:.06em; font-size:.86rem; text-transform:uppercase; color:#ffffff}
+.dl .v{color:#b9c2c9}
+.dl .v a{color:#b9c2c9}
 .dl .v a:hover{color:var(--accent)}
 .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:30px}
 .btn{display:inline-flex; align-items:center; gap:8px; padding:12px 22px; border-radius:3px; font-weight:500; font-size:.82rem; letter-spacing:.08em; text-transform:uppercase; transition:.2s}
 .btn-a{background:var(--accent); color:#08110d}
 .btn-a:hover{background:var(--accent-d)}
-.btn-g{border:1px solid var(--line); color:#fff}
+.btn-g{border:1px solid var(--line); color:var(--slate)}
 .btn-g:hover{border-color:var(--accent); color:var(--accent)}
-.photo{width:300px; height:340px; margin:0 auto; border:6px solid rgba(255,255,255,.06);
-  background:linear-gradient(160deg,#3b4247,#262b2e); display:flex; align-items:center; justify-content:center; position:relative}
+.hero .btn-g{border-color:rgba(255,255,255,.30); color:#fff}
+.hero .btn-g:hover{border-color:var(--accent); color:var(--accent)}
+.photo{width:300px; height:340px; margin:0 auto; border:6px solid rgba(255,255,255,.10);
+  background:linear-gradient(160deg,#46535d,#333e46); display:flex; align-items:center; justify-content:center; position:relative}
 .photo b{font-size:4.4rem; font-weight:700; color:var(--accent); letter-spacing:.04em}
-.photo small{position:absolute; bottom:10px; left:0; right:0; text-align:center; color:var(--muted); font-size:.72rem}
+.photo small{position:absolute; bottom:10px; left:0; right:0; text-align:center; color:#aeb9c1; font-size:.72rem}
 
 /* sections */
 .section{padding:76px 0}
 .sec-head{text-align:center; margin-bottom:52px}
 .sec-head .cap{color:var(--accent); letter-spacing:.28em; text-transform:uppercase; font-size:.8rem; font-weight:500}
-.sec-head h2{font-size:clamp(1.7rem,3.4vw,2.3rem); margin:10px 0 0}
+.sec-head h2{font-size:clamp(1.7rem,3.4vw,2.3rem); margin:10px 0 0; color:var(--slate)}
 .sec-head .line{width:56px; height:3px; background:var(--accent); margin:16px auto 0}
 
 /* about */
 .about{display:grid; grid-template-columns:1fr 1fr; gap:54px; align-items:start}
 .about p{color:var(--muted)}
-.about h3{margin-bottom:14px}
+.about h3{margin-bottom:14px; color:var(--slate)}
 .bar{margin-bottom:16px}
-.bar .t{display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:6px; letter-spacing:.04em}
-.bar .track{height:7px; background:rgba(255,255,255,.07); border-radius:6px; overflow:hidden}
+.bar .t{display:flex; justify-content:space-between; font-size:.85rem; margin-bottom:6px; letter-spacing:.04em; color:var(--ink)}
+.bar .track{height:7px; background:#e6ebef; border-radius:6px; overflow:hidden}
 .bar .fill{height:100%; width:0; background:linear-gradient(90deg,var(--accent),#39d9b4); border-radius:6px; transition:width 1s ease}
 
 /* services */
 .svc{display:grid; grid-template-columns:repeat(4,1fr); gap:20px}
-.svc .box{background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:30px 24px; text-align:center; transition:.25s}
-.svc .box:hover{transform:translateY(-6px); border-color:var(--accent)}
+.svc .box{background:#fff; border:1px solid var(--line); border-radius:6px; padding:30px 24px; text-align:center; transition:.25s; box-shadow:0 6px 20px rgba(40,55,70,.05)}
+.svc .box:hover{transform:translateY(-6px); border-color:var(--accent); box-shadow:0 14px 30px rgba(40,55,70,.10)}
 .svc .ic{width:64px; height:64px; margin:0 auto 18px; border-radius:50%; background:rgba(21,195,154,.12); color:var(--accent); display:flex; align-items:center; justify-content:center; font-size:1.7rem}
-.svc h4{font-size:1.05rem; margin-bottom:8px}
+.svc h4{font-size:1.05rem; margin-bottom:8px; color:var(--slate)}
 .svc p{color:var(--muted); font-size:.9rem; margin:0}
 
 /* experience timeline */
@@ -94,28 +98,28 @@ nav{display:flex; align-items:center; justify-content:space-between; height:74px
 .tl .it{position:relative; padding:0 0 30px 52px}
 .tl .it:before{content:""; position:absolute; left:8px; top:5px; width:14px; height:14px; border-radius:50%; background:var(--accent); box-shadow:0 0 0 4px rgba(21,195,154,.18)}
 .tl .when{color:var(--accent); font-size:.82rem; letter-spacing:.06em; font-weight:500}
-.tl h4{margin:4px 0 2px}
-.tl .org{color:#cfd6d9; font-size:.92rem}
+.tl h4{margin:4px 0 2px; color:var(--slate)}
+.tl .org{color:#46535d; font-size:.92rem}
 .tl p{color:var(--muted); font-size:.92rem; margin:8px 0 0}
 
 /* portfolio */
 .port{display:grid; grid-template-columns:repeat(2,1fr); gap:20px}
-.pcard{background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:26px; transition:.25s; display:flex; flex-direction:column}
-.pcard:hover{transform:translateY(-5px); border-color:var(--accent)}
+.pcard{background:#fff; border:1px solid var(--line); border-radius:6px; padding:26px; transition:.25s; display:flex; flex-direction:column; box-shadow:0 6px 20px rgba(40,55,70,.05)}
+.pcard:hover{transform:translateY(-5px); border-color:var(--accent); box-shadow:0 14px 30px rgba(40,55,70,.10)}
 .pcard.big{grid-column:1/-1}
 .pcard .tag{color:var(--accent); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; font-weight:500}
-.pcard h4{font-size:1.18rem; margin:9px 0 8px}
+.pcard h4{font-size:1.18rem; margin:9px 0 8px; color:var(--slate)}
 .pcard p{color:var(--muted); font-size:.92rem; margin:0 0 14px; flex:1}
 .mets{display:flex; gap:26px; flex-wrap:wrap; margin-bottom:14px}
 .mets b{display:block; color:var(--accent); font-size:1.5rem; font-weight:700}
 .mets small{color:var(--muted); font-size:.78rem}
 .tech{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:14px}
-.tech span{font-size:.74rem; color:#cfd6d9; background:rgba(255,255,255,.06); padding:4px 10px; border-radius:3px}
+.tech span{font-size:.74rem; color:#46535d; background:#eef2f5; padding:4px 10px; border-radius:3px}
 .pcard .go{color:var(--accent); font-weight:500; font-size:.82rem; letter-spacing:.08em; text-transform:uppercase; margin-top:auto}
 
 /* contact */
-.contact{text-align:center; padding:90px 0}
-.contact h2{font-size:clamp(1.8rem,3.6vw,2.4rem)}
+.contact{text-align:center; padding:90px 0; background:var(--bg2)}
+.contact h2{font-size:clamp(1.8rem,3.6vw,2.4rem); color:var(--slate)}
 .contact p{color:var(--muted); max-width:520px; margin:14px auto 30px}
 .social{display:flex; gap:14px; justify-content:center; flex-wrap:wrap}
 
@@ -128,12 +132,12 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
   .svc{grid-template-columns:1fr 1fr}
   .port{grid-template-columns:1fr}
   .dl .row{grid-template-columns:130px 1fr}
-  .navlinks{position:fixed; inset:74px 0 auto 0; background:#1e2225; flex-direction:column; padding:8px 20px 18px; border-bottom:1px solid var(--line); display:none}
+  .navlinks{position:fixed; inset:74px 0 auto 0; background:#fff; flex-direction:column; padding:8px 20px 18px; border-bottom:1px solid var(--line); display:none; box-shadow:0 12px 24px rgba(40,55,70,.08)}
   .navlinks.open{display:flex}
   .navlinks a{padding:13px 6px}
   .menu-btn{display:block}
 }
-@media(max-width:560px){ .svc{grid-template-columns:1fr} .hcard{padding:30px 22px} }
+@media(max-width:560px){ .svc{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
@@ -167,12 +171,11 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
               <div class="divide"></div>
               <div class="dl">
                 <div class="row"><div class="k">Name</div><div class="v">Le Nam Phong</div></div>
-                <div class="row"><div class="k">Role</div><div class="v">Business / Data Analyst</div></div>
-                <div class="row"><div class="k">Focus</div><div class="v">Process Mining · BPMN · Automation</div></div>
-                <div class="row"><div class="k">Phone</div><div class="v">+84 969 242 972 · +61 431 228 037</div></div>
-                <div class="row"><div class="k">Location</div><div class="v">Brisbane, AU · Hanoi from Jan 2027</div></div>
+                <div class="row"><div class="k">D.O.B</div><div class="v">DD–MM–YYYY</div></div>
+                <div class="row"><div class="k">Phone</div><div class="v">+84 969 242 972</div></div>
+                <div class="row"><div class="k""k">Address</div><div class="v">Hanoi, Vietnam</div></div>
                 <div class="row"><div class="k">E-mail</div><div class="v"><a href="mailto:lenamphong2000@gmail.com">lenamphong2000@gmail.com</a></div></div>
-                <div class="row"><div class="k">GitHub</div><div class="v"><a href="https://github.com/Peterle220220" target="_blank" rel="noopener">github.com/Peterle220220</a></div></div>
+                <div class="row"><div class="k">Website</div><div class="v"><a href="https://peterle220220.github.io" target="_blank" rel="noopener">peterle220220.github.io</a></div></div>
               </div>
               <div class="cta">
                 <a class="btn btn-a" href="#portfolio" data-nav="portfolio">View portfolio</a>
@@ -194,7 +197,7 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
         <div>
           <h3>Turning messy processes into clear decisions</h3>
           <p>With two years in import/export operations and a Master of Data Analytics from QUT (Australia), I sit where business questions meet data. I map how work actually flows, mine event logs to find where it breaks, and build the tools and automation that fix it.</p>
-          <p>My focus is <span class="accent">process mining and business process automation</span> — using Signavio, Celonis and Disco alongside Python to move teams from guesswork to evidence. Open to remote work now and relocating to Hanoi from January 2027.</p>
+          <p>My focus is <span class="accent">process mining and business process automation</span> — using Signavio, Celonis and Disco alongside Python to move teams from guesswork to evidence. Based in Vietnam and open to on-site roles in Hanoi.</p>
         </div>
         <div>
           <h3 style="margin-bottom:20px">My Skills</h3>
@@ -285,7 +288,7 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
     <div class="contact"><div class="wrap">
       <div class="cap accent" style="letter-spacing:.28em;text-transform:uppercase;font-size:.8rem">Get in touch</div>
       <h2 style="margin-top:10px">Let's talk about process &amp; data</h2>
-      <p>Open to Business Analyst, Data Analyst and Process / BPM Analyst roles — remote now, on-site in Hanoi from January 2027.</p>
+      <p>Open to Business Analyst, Data Analyst and Process / BPM Analyst roles — on-site in Hanoi, Vietnam.</p>
       <div class="social">
         <a class="btn btn-a" href="mailto:lenamphong2000@gmail.com">Email me</a>
         <a class="btn btn-g" href="https://www.linkedin.com/in/phongnamle/" target="_blank" rel="noopener">LinkedIn</a>
@@ -305,7 +308,7 @@ function show(id){
   pages.forEach(p=>p.classList.toggle('active',p.dataset.page===id));
   document.querySelectorAll('.navlinks a').forEach(a=>a.classList.toggle('active',a.dataset.nav===id));
   window.scrollTo({top:0,behavior:'instant'});
-  if(id==='about'){document.querySelectorAll('#about .fill,.page[data-page=about] .fill').forEach(f=>{f.style.width='0';requestAnimationFrame(()=>requestAnimationFrame(()=>f.style.width=f.dataset.w));});}
+  if(id==='about'){document.querySelectorAll('.page[data-page=about] .fill').forEach(f=>{f.style.width='0';requestAnimationFrame(()=>requestAnimationFrame(()=>f.style.width=f.dataset.w));});}
 }
 document.querySelectorAll('[data-nav]').forEach(a=>a.addEventListener('click',e=>{
   e.preventDefault(); const id=a.dataset.nav; history.pushState(null,'','#'+id); nav.classList.remove('open'); show(id);
