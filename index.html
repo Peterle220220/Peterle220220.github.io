@@ -90,7 +90,7 @@ nav{display:flex; align-items:center; justify-content:space-between; height:74px
 
 /* right side: auto-rotating panels */
 .ac{position:relative; overflow:hidden}
-.ac-track{display:flex; will-change:transform}
+.ac-track{display:flex; will-change:transform; transition:transform .8s cubic-bezier(.65,.05,.36,1)}
 .ac-slide{min-width:100%; padding-right:2px}
 .ac-dots{display:flex; gap:10px; margin-top:26px}
 .ac-dots button{width:11px; height:11px; padding:0; border:0; border-radius:50%;
@@ -445,51 +445,32 @@ const spy=new IntersectionObserver(entries=>{
 },{rootMargin:'-45% 0px -50% 0px'});
 document.querySelectorAll('.page').forEach(s=>spy.observe(s));
 
-/* About panels: auto-rotate (overview to skills) every 10s, sliding in from the left, looping */
+/* About panels: auto-rotate (overview / skills) every 10s, looping. Index is
+   always modulo n and the transform is only ever 0 or -100%, so it cannot drift. */
 (function(){
   const root=document.getElementById('about-carousel');
   if(!root) return;
   const track=document.getElementById('ac-track');
   const dots=[...root.querySelectorAll('.ac-dots button')];
-  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const real=track.children.length;                 // 2 real panels
-  const EASE='transform .8s cubic-bezier(.65,.05,.36,1)';
-
-  /* prepend a clone of the last panel so panels can enter from the left seamlessly */
-  const clone=track.children[real-1].cloneNode(true);
-  clone.setAttribute('aria-hidden','true');
-  track.insertBefore(clone, track.children[0]);
-
   const bars=track.querySelectorAll('.fill');
-  let p=1, timer=null;                               // p=1 shows the first real panel
+  const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const n=track.children.length;                 // number of panels (2)
+  let i=0, timer=null;
 
-  function move(px,animate){
-    track.style.transition=animate?EASE:'none';
-    track.style.transform='translateX(-'+(px*100)+'%)';
+  function show(k){
+    i=((k % n) + n) % n;                          // safe wrap, never negative
+    track.style.transform='translateX(-'+(i*100)+'%)';
+    dots.forEach((d,x)=>d.classList.toggle('active',x===i));
+    bars.forEach(f=>f.style.width = i===1 ? f.dataset.w : '0');
   }
-  function sync(){
-    const ri=(p-1+real)%real;                        // which real panel is showing
-    dots.forEach((d,n)=>d.classList.toggle('active',n===ri));
-    bars.forEach(f=>f.style.width = ri===1 ? f.dataset.w : '0');
-  }
-
-  move(p,false); sync();
-
-  function advance(){ p--; move(p,true); sync(); }   // decreasing = content enters from the left
-  function jump(ri){ p=ri+1; move(p,true); sync(); }
-
-  track.addEventListener('transitionend',e=>{
-    if(e.target!==track || e.propertyName!=='transform') return;
-    if(p===0){ p=real; move(p,false); }              // passed the clone → snap to the real last panel
-  });
-
-  function start(){ if(reduce) return; stop(); timer=setInterval(advance,10000); }
+  function next(){ show(i+1); }
+  function start(){ if(reduce) return; stop(); timer=setInterval(next,10000); }
   function stop(){ clearInterval(timer); timer=null; }
 
-  dots.forEach((d,n)=>d.addEventListener('click',()=>{ jump(n); start(); }));
+  show(0);
+  dots.forEach((d,x)=>d.addEventListener('click',()=>{ show(x); start(); }));
   root.addEventListener('mouseenter',stop);
   root.addEventListener('mouseleave',start);
-
   start();
 })();
 
