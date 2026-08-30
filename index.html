@@ -41,12 +41,12 @@ nav{display:flex; align-items:center; justify-content:space-between; height:74px
 
 /* HERO / HOME: gray-blue band */
 .hero{position:relative; background:linear-gradient(160deg,#33414c,#28323a); padding:78px 0 90px; overflow:hidden}
-.hero-bg{position:absolute; inset:0; z-index:0; background:url('hero-bg.jpg') center 35%/cover no-repeat; opacity:.45}
+.hero-bg{position:absolute; inset:0; z-index:0; background:url('hero-bg.jpg') center 40%/cover no-repeat; opacity:.9}
 .hero:before{content:""; position:absolute; inset:0; z-index:1;
   background:radial-gradient(1100px 460px at 82% 8%, rgba(21,195,154,.16), transparent 60%); pointer-events:none}
 .hero:after{content:""; position:absolute; inset:0; z-index:1; pointer-events:none;
-  background:linear-gradient(100deg,rgba(38,48,56,.90) 0%,rgba(38,48,56,.58) 52%,rgba(38,48,56,.30) 100%)}
-.hcard{position:relative; z-index:2}
+  background:linear-gradient(100deg,rgba(38,48,56,.55) 0%,rgba(38,48,56,.30) 55%,rgba(38,48,56,.18) 100%)}
+.hcard{position:relative; z-index:2; background:rgba(33,42,50,.72); padding:46px 46px 50px; border-radius:2px}
 .hgrid{display:grid; grid-template-columns:1fr 320px; gap:56px; align-items:center}
 .bubble{position:relative; display:inline-block; background:var(--accent); color:#08110d; font-weight:700; padding:8px 20px; border-radius:4px; font-size:1.05rem}
 .bubble:after{content:""; position:absolute; left:26px; bottom:-9px; border:9px solid transparent; border-top-color:var(--accent); border-bottom:0}
@@ -78,10 +78,11 @@ nav{display:flex; align-items:center; justify-content:space-between; height:74px
 .sec-head .line{width:56px; height:3px; background:var(--accent); margin:16px auto 0}
 
 /* about: full-bleed split, photo left / rotating panels right */
-.about-split{display:grid; grid-template-columns:1fr 1fr; align-items:stretch; min-height:660px; background:#f7f9fa}
-.about-img{position:relative; overflow:hidden; background:#28323a}
-.about-img img{width:100%; height:100%; object-fit:cover; object-position:center 16%; display:block}
-.about-body{display:flex; align-items:center; padding:72px 6vw 72px 104px}
+.about-sec{background:#f7f9fa; padding:64px 26px}
+.about-split{display:grid; grid-template-columns:1fr 1fr; align-items:stretch; max-width:1000px; margin:0 auto}
+.about-img{position:relative; overflow:hidden; background:#28323a; aspect-ratio:937/1280}
+.about-img img{width:100%; height:100%; object-fit:cover; display:block}
+.about-body{display:flex; align-items:center; padding:40px 34px 40px 76px; background:#fff}
 .about-body p{color:var(--muted)}
 .about-body h2{color:var(--slate); font-size:clamp(1.55rem,2.6vw,2.05rem); margin-bottom:16px; font-weight:400}
 .about-body h2 b{font-weight:700}
@@ -175,9 +176,10 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
 @media(max-width:900px){
   .hgrid{grid-template-columns:1fr; gap:34px}
   .photo{order:-1}
-  .about-split{grid-template-columns:1fr; min-height:0}
-  .about-img{height:420px}
-  .about-body{padding:46px 26px 54px}
+  .about-sec{padding:40px 0}
+  .about-split{grid-template-columns:1fr; max-width:520px}
+  .about-body{padding:40px 26px 46px}
+  .hcard{padding:32px 24px 36px}
   .ac-dots{position:static; transform:none; flex-direction:row; margin-top:26px; padding:4px}
   .svc{grid-template-columns:1fr 1fr}
   .modal-card{grid-template-columns:1fr; max-height:92vh}
@@ -246,9 +248,9 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
 
   <!-- ABOUT -->
   <section class="page" id="about" data-page="about">
-    <div class="about-split">
+    <div class="about-sec"><div class="about-split">
 
-      <!-- LEFT: full-bleed photo -->
+      <!-- LEFT: photo, shown whole -->
       <div class="about-img">
         <img src="me.jpg" alt="Le Nam Phong on QUT graduation day in Brisbane">
       </div>
@@ -292,7 +294,7 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
         </div>
       </div>
 
-    </div>
+    </div></div>
   </section>
 
   <!-- SERVICES / QUT PROJECTS -->
