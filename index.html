@@ -111,7 +111,7 @@ nav{display:flex; align-items:center; justify-content:space-between; height:74px
 
 /* services */
 .svc-sec{background:var(--bg2)}
-.svc{display:grid; grid-template-columns:repeat(5,1fr); gap:18px}
+.svc{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
 .svc .box{background:#fff; border:1px solid var(--line); border-radius:6px; padding:30px 24px; text-align:center; transition:.25s; box-shadow:0 6px 20px rgba(40,55,70,.05); cursor:pointer; font:inherit; color:inherit; display:block; width:100%}
 .svc .box:hover{transform:translateY(-6px); border-color:var(--accent); box-shadow:0 14px 30px rgba(40,55,70,.10)}
 .svc .ic{width:64px; height:64px; margin:0 auto 18px; border-radius:50%; background:#fff; color:var(--c,var(--accent)); border:1px solid var(--line); display:flex; align-items:center; justify-content:center; font-size:1.7rem; transition:background .25s, color .25s, border-color .25s, transform .25s}
@@ -120,7 +120,6 @@ nav{display:flex; align-items:center; justify-content:space-between; height:74px
 .svc h4{font-size:1.05rem; margin-bottom:8px; color:var(--slate)}
 .svc p{color:var(--muted); font-size:.9rem; margin:0}
 .svc .more{display:inline-block; margin-top:14px; color:var(--accent); font-size:.74rem; letter-spacing:.08em; text-transform:uppercase; font-weight:600}
-@media(max-width:1040px){ .svc{grid-template-columns:repeat(3,1fr)} }
 
 /* project modal */
 .modal[hidden]{display:none}
@@ -141,6 +140,18 @@ nav{display:flex; align-items:center; justify-content:space-between; height:74px
 .pm-context{margin-top:14px; font-size:.82rem; color:#8a97a0; border-left:2px solid var(--line); padding-left:12px; line-height:1.5}
 .modal-right .tech{margin:16px 0 18px}
 .modal-right .go{color:var(--accent); font-weight:500; font-size:.82rem; letter-spacing:.08em; text-transform:uppercase}
+.modal-card.wide{max-width:1060px}
+.pm-shots{margin:14px 0 4px}
+.pm-shots[hidden]{display:none}
+.pm-main{margin:0}
+.pm-main a{display:block; border:1px solid var(--line); border-radius:6px; overflow:hidden; background:#0b1120; line-height:0}
+.pm-main img{width:100%; height:auto; display:block; transition:opacity .2s}
+.pm-main figcaption{font-size:.8rem; color:var(--muted); margin-top:8px; line-height:1.5}
+.pm-thumbs{display:flex; gap:8px; margin-top:10px; overflow-x:auto; padding-bottom:2px}
+.pm-thumbs button{flex:0 0 auto; width:86px; padding:0; border:2px solid transparent; border-radius:4px; overflow:hidden; cursor:pointer; background:none; line-height:0; opacity:.6; transition:opacity .2s, border-color .2s}
+.pm-thumbs button:hover{opacity:1}
+.pm-thumbs button.on{border-color:var(--accent); opacity:1}
+.pm-thumbs img{width:100%; height:48px; object-fit:cover; object-position:left top; display:block}
 .modal-x{position:absolute; top:12px; right:14px; z-index:2; width:38px; height:38px; border-radius:50%; border:0; cursor:pointer; background:#fff; color:var(--slate); font-size:1.6rem; line-height:1; box-shadow:0 2px 8px rgba(0,0,0,.25)}
 .modal-x:hover{color:var(--accent)}
 
@@ -164,82 +175,6 @@ nav{display:flex; align-items:center; justify-content:space-between; height:74px
 /* tech tags (used in the project modal) */
 .tech{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:14px}
 .tech span{font-size:.74rem; color:#46535d; background:#eef2f5; padding:4px 10px; border-radius:3px}
-
-/* featured project: dark showcase band */
-.feat{position:relative; overflow:hidden; padding:84px 0 88px; background:linear-gradient(160deg,#2c3740,#1f272d)}
-.feat:before{content:""; position:absolute; inset:0; pointer-events:none;
-  background:radial-gradient(900px 420px at 88% 0%, rgba(21,195,154,.18), transparent 62%)}
-.feat .wrap{position:relative; z-index:1}
-.feat .btn-g{border-color:rgba(255,255,255,.30); color:#fff}
-.feat .btn-g:hover{border-color:var(--accent); color:var(--accent)}
-.feat-cap{display:inline-flex; align-items:center; gap:10px; color:var(--accent);
-  letter-spacing:.28em; text-transform:uppercase; font-size:.76rem; font-weight:600}
-.feat-cap:before{content:""; width:26px; height:2px; background:var(--accent)}
-.feat h2{color:#fff; font-size:clamp(1.6rem,3.4vw,2.25rem); margin:16px 0 0}
-.feat-lead{color:#b9c2c9; margin:16px 0 0; max-width:700px}
-.feat-lead b{color:#e7edf1; font-weight:600}
-.feat-sub{color:#8e9aa3; letter-spacing:.2em; text-transform:uppercase; font-size:.72rem; font-weight:600; margin:0 0 20px}
-
-/* stat cards */
-.feat-stats{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:38px 0 0}
-.fs{background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.10); border-radius:6px;
-  padding:24px; transition:transform .25s, border-color .25s, background .25s}
-.fs:hover{transform:translateY(-3px); border-color:rgba(21,195,154,.45); background:rgba(255,255,255,.07)}
-.fs-n{color:var(--accent); font-weight:700; font-size:clamp(2rem,4.4vw,2.6rem); line-height:1}
-.fs-k{color:#fff; font-weight:600; font-size:.95rem; margin:12px 0 0}
-.fs-s{color:#93a0a9; font-size:.83rem; margin:5px 0 0; line-height:1.5}
-
-/* highlights + layer diagram */
-.feat-grid{display:grid; grid-template-columns:1fr 348px; gap:46px; margin:54px 0 0; align-items:start}
-.fh{display:grid; gap:22px}
-.fh-item{display:grid; grid-template-columns:44px 1fr; gap:16px; align-items:start}
-.fh-ic{width:44px; height:44px; border-radius:6px; display:flex; align-items:center; justify-content:center;
-  background:rgba(21,195,154,.14); border:1px solid rgba(21,195,154,.30); color:var(--accent); font-size:1.15rem}
-.fh-item h4{color:#fff; font-size:1rem}
-.fh-item p{color:#a8b3bb; font-size:.9rem; margin:7px 0 0; line-height:1.6}
-.fl{background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.09); border-radius:6px; padding:22px}
-.fl-row{position:relative; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.10);
-  border-left:3px solid var(--accent); border-radius:4px; padding:12px 14px}
-.fl-row+.fl-row{margin-top:28px}
-.fl-row+.fl-row:before{content:"\2193"; position:absolute; top:-23px; left:50%; transform:translateX(-50%);
-  color:var(--accent); font-size:1rem; line-height:1}
-.fl-row b{display:block; color:#fff; font-size:.9rem; font-weight:600; letter-spacing:.04em}
-.fl-row span{display:block; color:#8e9aa3; font-size:.78rem; margin-top:3px}
-.fl-note{color:#93a0a9; font-size:.78rem; margin:18px 0 0; text-align:center; line-height:1.55}
-.fl-note b{color:var(--accent); font-weight:600}
-
-/* tech + cta */
-.feat-tech{display:flex; flex-wrap:wrap; gap:8px; margin:46px 0 0}
-.feat-tech span{font-size:.76rem; color:#cdd6dc; background:rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.11); padding:6px 13px; border-radius:3px}
-.feat-note{display:flex; gap:12px; align-items:flex-start; max-width:640px; margin:30px 0 0;
-  padding:14px 16px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.09);
-  border-left:3px solid var(--accent); border-radius:4px}
-.feat-note svg{flex:0 0 auto; color:var(--accent); margin-top:3px}
-.feat-note p{margin:0; color:#a8b3bb; font-size:.86rem; line-height:1.6}
-.feat-note b{color:#e7edf1; font-weight:600}
-.feat-cta{display:flex; flex-wrap:wrap; gap:12px; margin:26px 0 0}
-
-/* the band is dark by design, so a dark-mode viewer only needs it deepened a touch */
-@media(prefers-color-scheme:dark){
-  .feat{background:linear-gradient(160deg,#242d34,#191f24)}
-  .fs,.fl-row{background:rgba(255,255,255,.04)}
-  .fl{background:rgba(255,255,255,.03)}
-}
-@media(prefers-reduced-motion:reduce){ .fs{transition:none} .fs:hover{transform:none} }
-@media(max-width:980px){
-  .feat-grid{grid-template-columns:1fr; gap:40px}
-  .feat-diag{max-width:560px; margin:0 auto}
-  .feat-diag .feat-sub{text-align:center}
-}
-@media(max-width:680px){
-  .feat{padding:64px 0 68px}
-  .feat-stats{grid-template-columns:1fr; gap:12px}
-  .fs{padding:20px}
-  .feat-grid{margin-top:42px}
-  .feat-tech{margin-top:36px}
-  .feat-cta .btn{flex:1 1 100%; justify-content:center}
-}
 
 /* contact */
 .contact{text-align:center; padding:90px 0; background:var(--bg2)}
@@ -281,7 +216,6 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
       <div class="navlinks" id="nav">
         <a href="#home" data-nav="home">Home</a>
         <a href="#about" data-nav="about">About</a>
-        <a href="#featured" data-nav="featured">Featured</a>
         <a href="#services" data-nav="services">Projects</a>
         <a href="#experience" data-nav="experience">Experience</a>
         <a href="#contact" data-nav="contact">Contact</a>
@@ -374,94 +308,6 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
     </div></div>
   </section>
 
-  <!-- FEATURED PROJECT -->
-  <section class="page" id="featured" data-page="featured">
-    <div class="feat"><div class="wrap">
-
-      <div class="feat-head">
-        <div class="feat-cap">Featured project</div>
-        <h2>Enterprise Banking Financial BI System</h2>
-        <p class="feat-lead">An on-premise business-intelligence and financial-reporting platform for banking, rebuilt end to end from <b>78 flat files of monolithic spaghetti</b> into enterprise Clean Architecture.</p>
-      </div>
-
-      <div class="feat-stats">
-        <div class="fs">
-          <div class="fs-n">90.7%</div>
-          <div class="fs-k">Test coverage</div>
-          <div class="fs-s">~2,987 automated test cases</div>
-        </div>
-        <div class="fs">
-          <div class="fs-n">0</div>
-          <div class="fs-k">Layer violations</div>
-          <div class="fs-s">Enforced by AST-based tests</div>
-        </div>
-        <div class="fs">
-          <div class="fs-n">4</div>
-          <div class="fs-k">Core domains</div>
-          <div class="fs-s">Modelled with Domain-Driven Design</div>
-        </div>
-      </div>
-
-      <div class="feat-grid">
-
-        <div>
-          <div class="feat-sub">Key highlights</div>
-          <div class="fh">
-            <div class="fh-item">
-              <div class="fh-ic" aria-hidden="true">&#9881;</div>
-              <div>
-                <h4>Deterministic execution engine</h4>
-                <p>An LLM only translates natural language into a query; a deterministic layer (DuckDB + a SQL guard) executes it. Numbers come from the database, never from the model, so hallucinated figures are structurally impossible.</p>
-              </div>
-            </div>
-            <div class="fh-item">
-              <div class="fh-ic" aria-hidden="true">&#9636;</div>
-              <div>
-                <h4>Strict layer enforcement</h4>
-                <p>Dependencies run one way only &mdash; API to Application to Domains to Core. The rule is not a convention in a README: tests parse the AST of every module and fail the build on any upward import.</p>
-              </div>
-            </div>
-            <div class="fh-item">
-              <div class="fh-ic" aria-hidden="true">&#9114;</div>
-              <div>
-                <h4>Enterprise security &amp; operations</h4>
-                <p>Deployed on-premise with Docker. The backend sits on an isolated internal network with no public exposure, reachable only through a Next.js REST API at the edge.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="feat-diag">
-          <div class="feat-sub">Dependency rule</div>
-          <div class="fl">
-            <div class="fl-row"><b>API</b><span>FastAPI &middot; Next.js REST edge</span></div>
-            <div class="fl-row"><b>Application</b><span>Use cases &amp; orchestration</span></div>
-            <div class="fl-row"><b>Domains</b><span>4 DDD bounded contexts</span></div>
-            <div class="fl-row"><b>Core</b><span>Entities &amp; shared primitives</span></div>
-            <p class="fl-note">Imports may only point downward.<br><b>0 violations</b> across the codebase.</p>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="feat-tech">
-        <span>Python</span><span>FastAPI</span><span>Next.js</span><span>DuckDB</span>
-        <span>Docker</span><span>Clean Architecture</span><span>DDD</span><span>PyTest</span>
-      </div>
-
-      <div class="feat-note">
-        <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12 2a5 5 0 0 0-5 5v3H6a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V11a1 1 0 0 0-1-1h-1V7a5 5 0 0 0-5-5zm-3 5a3 3 0 0 1 6 0v3H9V7z"/></svg>
-        <p><b>Private repository.</b> The system runs against live banking data and holds production credentials, so the source is not published. I am glad to walk through the architecture, the test suite or a live demo on request.</p>
-      </div>
-
-      <div class="feat-cta">
-        <a class="btn btn-a" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lenamphong2000@gmail.com" target="_blank" rel="noopener">Request a walkthrough</a>
-        <a class="btn btn-g" href="#services" data-nav="services">See other projects</a>
-      </div>
-
-    </div></div>
-  </section>
-
   <!-- SERVICES / QUT PROJECTS -->
   <section class="page" id="services" data-page="services">
     <div class="section svc-sec"><div class="wrap">
@@ -497,6 +343,12 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
           <p>Five AWS microservices that transcode video at scale, defined fully in Terraform.</p>
           <span class="more">View project →</span>
         </button>
+        <button class="box" type="button" data-project="asys" style="--c:#2f8f9d">
+          <div class="ic">⌬</div>
+          <h4>Multi-Agent Data Analysis System</h4>
+          <p>14 AI agents answer business questions, and every number traces back to a source row.</p>
+          <span class="more">View project →</span>
+        </button>
       </div>
     </div></div>
   </section>
@@ -514,6 +366,13 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
       <div class="modal-right">
         <div class="pm-cap">Project detail</div>
         <p id="pm-desc"></p>
+        <div class="pm-shots" id="pm-shots" hidden>
+          <figure class="pm-main">
+            <a id="pm-shot-link" target="_blank" rel="noopener"><img id="pm-shot" alt=""></a>
+            <figcaption id="pm-shot-cap"></figcaption>
+          </figure>
+          <div class="pm-thumbs" id="pm-thumbs"></div>
+        </div>
         <div class="pm-context" id="pm-context"></div>
         <div class="pm-mets" id="pm-mets"></div>
         <div class="tech" id="pm-tech"></div>
@@ -712,6 +571,27 @@ document.querySelectorAll('.page').forEach(s=>spy.observe(s));
       mets:[['5','ECS microservices'],['1→5','tasks autoscaled'],['3','DLQ retries']],
       tech:['AWS','ECS Fargate','SQS','Lambda','Terraform','Docker','React','FFmpeg'],
       link:'https://github.com/Peterle220220/video-api'
+    },
+    asys:{
+      title:'Multi-Agent Data Analysis System',
+      did:['Designed a Manager that plans each question, dispatches work to 14 scoped agents (ingest, profiling, cleaning, SQL, validation, process mining, reporting) and merges the results.',
+           'Made numbers impossible to invent: the model writes sentences with placeholders, code fills in every figure, and any sentence with a model-typed digit is dropped.',
+           'Added two human approval gates, so the system never cleans data or publishes a conclusion on its own.',
+           'Guarded model-written SQL (SELECT/CREATE VIEW only, no out-of-scope tables) and ran it on in-memory DuckDB over Parquet layers from raw to mart.',
+           'Read tables, PDF, Word, email, images (OCR) and audio (speech-to-text), with export to Excel, Word, CSV or HTML for Power BI and Tableau.',
+           'Refactored the codebase into Clean Architecture with DDD, and enforced the layers with AST tests (0 violations), strict mypy and 2,987 tests.'],
+      desc:'An on-premise, multi-agent platform for business analysis. You upload a file, approve the proposed cleaning, then ask questions as often as you like. Each answer comes with evidence for every figure, and what could not be found is reported alongside what was.',
+      context:'Personal project. Next.js web UI plus the asys CLI; runs locally with Docker, and no data leaves the machine by default ($0 API cost). Source code is private; the GitHub link opens a public showcase with the architecture and screenshots.',
+      mets:[['14','specialised agents'],['90.7%','test coverage'],['2,987','automated tests'],['0','layer violations'],['$0','default API cost']],
+      tech:['Python','FastAPI','Next.js','TypeScript','DuckDB','Parquet','Docker','LLM agents','DDD'],
+      shots:[
+        ['shots/asys-answer.jpg','A direct answer with a confidence warning and the exact data scope (220 of 6,819 rows).'],
+        ['shots/asys-evidence.jpg','Each conclusion cites its evidence file and has its own chart and follow-up box.'],
+        ['shots/asys-dashboard.jpg','A dashboard built from published bank statements; figures are recomputed on every open.'],
+        ['shots/asys-bi.jpg','Self-service BI: drag dimensions and measures, then inspect the table and the query that ran.'],
+        ['shots/asys-gate.jpg','Human approval gate: no cleaning rule runs until the user ticks it.']
+      ],
+      link:'https://github.com/Peterle220220/analysis-system-showcase'
     }
   };
   const q=id=>document.getElementById(id);
@@ -724,8 +604,18 @@ document.querySelectorAll('.page').forEach(s=>spy.observe(s));
     const ctx=q('pm-context'); ctx.textContent=d.context||''; ctx.style.display=d.context?'':'none';
     q('pm-mets').innerHTML=(d.mets||[]).map(m=>'<div><b>'+m[0]+'</b><small>'+m[1]+'</small></div>').join('');
     q('pm-tech').innerHTML=d.tech.map(t=>'<span>'+t+'</span>').join('');
-    q('pm-link').href=d.link;
-    modal.hidden=false;
+    const shots=d.shots||[];
+    q('pm-shots').hidden=!shots.length;
+    modal.querySelector('.modal-card').classList.toggle('wide',shots.length>0);
+    q('pm-thumbs').innerHTML=shots.map((s,i)=>'<button type="button" data-i="'+i+'" aria-label="Screenshot '+(i+1)+'"><img src="'+s[0]+'" alt=""></button>').join('');
+    const pick=i=>{
+      q('pm-shot').src=shots[i][0]; q('pm-shot').alt=shots[i][1];
+      q('pm-shot-link').href=shots[i][0]; q('pm-shot-cap').textContent=shots[i][1];
+      q('pm-thumbs').querySelectorAll('button').forEach((b,x)=>b.classList.toggle('on',x===i));
+    };
+    q('pm-thumbs').onclick=e=>{ const b=e.target.closest('button'); if(b) pick(+b.dataset.i); };
+    if(shots.length) pick(0);
+    q('pm-link').href=d.link;    modal.hidden=false;
     document.body.style.overflow='hidden';
     modal.querySelector('.modal-x').focus();
   }
