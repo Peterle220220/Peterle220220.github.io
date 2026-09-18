@@ -7,7 +7,7 @@
 <meta name="description" content="Le Nam Phong, Business Analyst and Data Analyst. Process mining, BPMN, process automation. MSc Data Analytics, QUT."/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#ffffff; --bg2:#eef2f5; --ink:#26333d; --muted:#5f6f7a;
@@ -18,7 +18,7 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0; background:var(--bg); color:var(--ink);
-  font-family:'Poppins',system-ui,sans-serif; line-height:1.65; -webkit-font-smoothing:antialiased}
+  font-family:'Inter',system-ui,sans-serif; line-height:1.65; -webkit-font-smoothing:antialiased}
 h1,h2,h3,h4{margin:0; font-weight:600; line-height:1.2; color:var(--ink)}
 a{color:inherit; text-decoration:none}
 .wrap{max-width:var(--max); margin:0 auto; padding:0 26px}
@@ -34,6 +34,11 @@ nav{display:flex; align-items:center; justify-content:space-between; height:74px
 .navlinks a:hover{color:var(--slate)}
 .navlinks a.active{color:var(--accent)}
 .menu-btn{display:none; background:none; border:0; color:var(--slate); font-size:1.5rem; cursor:pointer}
+.nav-right{display:flex; align-items:center; gap:10px}
+.lang{display:inline-flex; border:1px solid var(--line); border-radius:30px; padding:3px; background:#fff}
+.lang button{border:0; background:none; font:inherit; font-size:.72rem; font-weight:600; letter-spacing:.1em; color:var(--muted); padding:5px 11px; border-radius:30px; cursor:pointer; transition:background .2s, color .2s}
+.lang button:hover{color:var(--slate)}
+.lang button[aria-pressed="true"]{background:var(--accent); color:#08110d}
 
 .page{display:block; scroll-margin-top:74px}
 .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease}
@@ -214,13 +219,19 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
     <nav>
       <a class="logo" href="#home" data-nav="home"><span class="b">P</span>HONG</a>
       <div class="navlinks" id="nav">
-        <a href="#home" data-nav="home">Home</a>
-        <a href="#about" data-nav="about">About</a>
-        <a href="#services" data-nav="services">Projects</a>
-        <a href="#experience" data-nav="experience">Experience</a>
-        <a href="#contact" data-nav="contact">Contact</a>
+        <a href="#home" data-nav="home" data-vi="Trang chủ">Home</a>
+        <a href="#about" data-nav="about" data-vi="Giới thiệu">About</a>
+        <a href="#services" data-nav="services" data-vi="Dự án">Projects</a>
+        <a href="#experience" data-nav="experience" data-vi="Kinh nghiệm">Experience</a>
+        <a href="#contact" data-nav="contact" data-vi="Liên hệ">Contact</a>
       </div>
-      <button class="menu-btn" id="menu" aria-label="Menu">☰</button>
+      <div class="nav-right">
+        <div class="lang" role="group" aria-label="Language / Ngôn ngữ">
+          <button type="button" data-lang="en" aria-pressed="true" title="English">EN</button>
+          <button type="button" data-lang="vi" aria-pressed="false" title="Tiếng Việt">VN</button>
+        </div>
+        <button class="menu-btn" id="menu" aria-label="Menu">☰</button>
+      </div>
     </nav>
   </div>
 </header>
@@ -234,23 +245,23 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
         <div class="hcard">
           <div class="hgrid">
             <div>
-              <span class="bubble">Hi!</span>
-              <div class="subrole">Business &amp; Data Analyst</div>
+              <span class="bubble" data-vi="Xin chào!">Hi!</span>
+              <div class="subrole" data-vi="Phân tích Nghiệp vụ &amp; Dữ liệu">Business &amp; Data Analyst</div>
               <div class="divide"></div>
               <div class="dl">
-                <div class="row"><div class="k">Name</div><div class="v">Le Nam Phong</div></div>
-                <div class="row"><div class="k">D.O.B</div><div class="v">22-02-2000</div></div>
-                <div class="row"><div class="k">Phone</div><div class="v">+84 969 242 972</div></div>
-                <div class="row"><div class="k">Address</div><div class="v">Hanoi, Vietnam</div></div>
+                <div class="row"><div class="k" data-vi="Họ tên">Name</div><div class="v">Lê Nam Phong</div></div>
+                <div class="row"><div class="k" data-vi="Ngày sinh">D.O.B</div><div class="v">22-02-2000</div></div>
+                <div class="row"><div class="k" data-vi="Điện thoại">Phone</div><div class="v">+84 969 242 972</div></div>
+                <div class="row"><div class="k" data-vi="Địa chỉ">Address</div><div class="v" data-vi="Hà Nội, Việt Nam">Hanoi, Vietnam</div></div>
                 <div class="row"><div class="k">E-mail</div><div class="v"><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lenamphong2000@gmail.com" target="_blank" rel="noopener">lenamphong2000@gmail.com</a></div></div>
                 <div class="row"><div class="k">Website</div><div class="v"><a href="https://peterle220220.github.io" target="_blank" rel="noopener">peterle220220.github.io</a></div></div>
               </div>
               <div class="cta">
-                <a class="btn btn-a" href="#services" data-nav="services">View projects</a>
-                <a class="btn btn-g" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lenamphong2000@gmail.com" target="_blank" rel="noopener">Hire me</a>
+                <a class="btn btn-a" href="#services" data-nav="services" data-vi="Xem dự án">View projects</a>
+                <a class="btn btn-g" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lenamphong2000@gmail.com" target="_blank" rel="noopener" data-vi="Tuyển dụng tôi">Hire me</a>
               </div>
             </div>
-            <div class="photo"><img src="me-hero.jpg" alt="Le Nam Phong at QUT, Brisbane"></div>
+            <div class="photo"><img src="me-hero.jpg" alt="Le Nam Phong at QUT, Brisbane" data-vi-alt="Le Nam Phong tại QUT, Brisbane"></div>
           </div>
         </div>
       </div>
@@ -263,7 +274,7 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
 
       <!-- LEFT: photo, shown whole -->
       <div class="about-img">
-        <img src="me.jpg" alt="Le Nam Phong on QUT graduation day in Brisbane">
+        <img src="me.jpg" alt="Le Nam Phong on QUT graduation day in Brisbane" data-vi-alt="Le Nam Phong trong ngày tốt nghiệp QUT tại Brisbane">
       </div>
 
       <!-- RIGHT: two panels that rotate every 10s -->
@@ -274,26 +285,26 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
 
               <!-- Panel 1: overview -->
               <div class="ac-slide">
-                <h2>Hi! I&#39;m <b>LE NAM PHONG</b></h2>
-                <p>I turn messy processes into clear decisions. With two years in import/export operations and a Master of Data Analytics from QUT (Australia), I sit where business questions meet data. I map how work actually flows and build the tools that fix it.</p>
+                <h2 data-vi="Xin chào! Tôi là <b>Lê Nam Phong</b>">Hi! I&#39;m <b>LE NAM PHONG</b></h2>
+                <p data-vi="Tôi giúp doanh nghiệp biến các quy trình phức tạp thành những quyết định chuẩn xác dựa trên dữ liệu. Với kinh nghiệm thực chiến trong ngành xuất nhập khẩu và nền tảng Thạc sĩ Phân tích Dữ liệu từ QUT (Úc), tôi đóng vai trò cầu nối giữa bài toán kinh doanh và giải pháp công nghệ. Tôi tập trung vào việc mô hình hóa hệ thống vận hành thực tế và xây dựng các công cụ tự động hóa để tối ưu hóa hiệu suất.">I turn messy processes into clear decisions. With two years in import/export operations and a Master of Data Analytics from QUT (Australia), I sit where business questions meet data. I map how work actually flows and build the tools that fix it.</p>
                 <ul class="facts">
-                  <li><span>Role</span> Business &amp; Data Analyst</li>
-                  <li><span>Focus</span> Process mining &middot; BPM automation</li>
-                  <li><span>Education</span> MSc Data Analytics, QUT</li>
-                  <li><span>Based in</span> Hanoi, Vietnam</li>
-                  <li><span>Languages</span> Vietnamese &middot; English &middot; Japanese</li>
+                  <li data-vi="<span>Chuyên môn</span> Phân tích Nghiệp vụ &amp; Dữ liệu"><span>Role</span> Business &amp; Data Analyst</li>
+                  <li data-vi="<span>Lĩnh vực</span> Khai phá quy trình &middot; Tự động hóa BPM"><span>Focus</span> Process mining &middot; BPM automation</li>
+                  <li data-vi="<span>Học vấn</span> Thạc sĩ Phân tích Dữ liệu, QUT"><span>Education</span> MSc Data Analytics, QUT</li>
+                  <li data-vi="<span>Nơi ở</span> Hà Nội, Việt Nam"><span>Based in</span> Hanoi, Vietnam</li>
+                  <li data-vi="<span>Ngôn ngữ</span> Tiếng Việt &middot; Tiếng Anh &middot; Tiếng Nhật"><span>Languages</span> Vietnamese &middot; English &middot; Japanese</li>
                 </ul>
               </div>
 
               <!-- Panel 2: skills -->
               <div class="ac-slide">
-                <h2><b>MY SKILLS</b></h2>
-                <div class="bar"><div class="t"><span>BPMN &amp; Process Modelling</span><span>90%</span></div><div class="track"><div class="fill" data-w="90%"></div></div></div>
-                <div class="bar"><div class="t"><span>Process Mining (Signavio &middot; Celonis)</span><span>85%</span></div><div class="track"><div class="fill" data-w="85%"></div></div></div>
-                <div class="bar"><div class="t"><span>Python &amp; Data Analysis</span><span>82%</span></div><div class="track"><div class="fill" data-w="82%"></div></div></div>
+                <h2 data-vi="<b>KỸ NĂNG</b>"><b>MY SKILLS</b></h2>
+                <div class="bar"><div class="t"><span data-vi="BPMN &amp; Mô hình hóa quy trình">BPMN &amp; Process Modelling</span><span>90%</span></div><div class="track"><div class="fill" data-w="90%"></div></div></div>
+                <div class="bar"><div class="t"><span data-vi="Khai phá quy trình (Signavio &middot; Celonis)">Process Mining (Signavio &middot; Celonis)</span><span>85%</span></div><div class="track"><div class="fill" data-w="85%"></div></div></div>
+                <div class="bar"><div class="t"><span data-vi="Python &amp; Phân tích dữ liệu">Python &amp; Data Analysis</span><span>82%</span></div><div class="track"><div class="fill" data-w="82%"></div></div></div>
                 <div class="bar"><div class="t"><span>SQL</span><span>75%</span></div><div class="track"><div class="fill" data-w="75%"></div></div></div>
-                <div class="bar"><div class="t"><span>Process Automation</span><span>80%</span></div><div class="track"><div class="fill" data-w="80%"></div></div></div>
-                <div class="bar"><div class="t"><span>Dashboards &amp; Data Viz</span><span>78%</span></div><div class="track"><div class="fill" data-w="78%"></div></div></div>
+                <div class="bar"><div class="t"><span data-vi="Tự động hóa quy trình">Process Automation</span><span>80%</span></div><div class="track"><div class="fill" data-w="80%"></div></div></div>
+                <div class="bar"><div class="t"><span data-vi="Dashboard &amp; Trực quan hóa dữ liệu">Dashboards &amp; Data Viz</span><span>78%</span></div><div class="track"><div class="fill" data-w="78%"></div></div></div>
               </div>
 
             </div>
@@ -311,43 +322,43 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
   <!-- SERVICES / QUT PROJECTS -->
   <section class="page" id="services" data-page="services">
     <div class="section svc-sec"><div class="wrap">
-      <div class="sec-head"><div class="cap">Selected work</div><h2>Selected Projects</h2><div class="line"></div></div>
+      <div class="sec-head"><div class="cap" data-vi="Công việc tiêu biểu">Selected work</div><h2 data-vi="Dự án tiêu biểu">Selected Projects</h2><div class="line"></div></div>
       <div class="svc">
         <button class="box" type="button" data-project="mining" style="--c:#15c39a">
           <div class="ic">◎</div>
-          <h4>Process Mining: Invoice Bottleneck</h4>
-          <p>Mined a 1.6M-event Purchase-to-Pay log to pinpoint where invoices stall.</p>
-          <span class="more">View project →</span>
+          <h4 data-vi="Process Mining: Điểm nghẽn thanh toán hóa đơn">Process Mining: Invoice Bottleneck</h4>
+          <p data-vi="Ứng dụng process mining trên 1,6 triệu sự kiện của quy trình Purchase-to-Pay (P2P) để xác định chính xác nguyên nhân gây chậm trễ thanh toán hóa đơn.">Mined a 1.6M-event Purchase-to-Pay log to pinpoint where invoices stall.</p>
+          <span class="more" data-vi="Xem dự án →">View project →</span>
         </button>
         <button class="box" type="button" data-project="bpa" style="--c:#3aa0e0">
           <div class="ic">⚙</div>
-          <h4>Business Process Automation</h4>
-          <p>Modelled an as-is process and automated the to-be on a BPM engine.</p>
-          <span class="more">View project →</span>
+          <h4 data-vi="Tự động hóa quy trình nghiệp vụ">Business Process Automation</h4>
+          <p data-vi="Thiết kế mô hình quy trình hiện trạng (As-Is) và xây dựng ứng dụng tự động hóa cho quy trình mục tiêu (To-Be) trên nền tảng BPM.">Modelled an as-is process and automated the to-be on a BPM engine.</p>
+          <span class="more" data-vi="Xem dự án →">View project →</span>
         </button>
         <button class="box" type="button" data-project="ir" style="--c:#8b6fd6">
           <div class="ic">▦</div>
-          <h4>Information Retrieval &amp; Ranking</h4>
-          <p>TF·IDF and BM25 retrieval and ranking, built and evaluated in Python.</p>
-          <span class="more">View project →</span>
+          <h4 data-vi="Truy xuất &amp; Xếp hạng thông tin">Information Retrieval &amp; Ranking</h4>
+          <p data-vi="Xây dựng hệ thống truy xuất và xếp hạng thông tin sử dụng thuật toán TF-IDF và BM25 bằng Python.">TF·IDF and BM25 retrieval and ranking, built and evaluated in Python.</p>
+          <span class="more" data-vi="Xem dự án →">View project →</span>
         </button>
         <button class="box" type="button" data-project="ops" style="--c:#e0913a">
           <div class="ic">▤</div>
-          <h4>Brisbane 2032 Games Operations</h4>
-          <p>Operations dashboard and crowd-flow model predicting transport bottlenecks.</p>
-          <span class="more">View project →</span>
+          <h4 data-vi="Vận hành Thế vận hội Brisbane 2032">Brisbane 2032 Games Operations</h4>
+          <p data-vi="Xây dựng dashboard vận hành và mô hình dự báo lưu lượng đám đông nhằm phát hiện sớm các điểm nghẽn giao thông.">Operations dashboard and crowd-flow model predicting transport bottlenecks.</p>
+          <span class="more" data-vi="Xem dự án →">View project →</span>
         </button>
         <button class="box" type="button" data-project="cloud" style="--c:#e0576b">
           <div class="ic">☁</div>
-          <h4>Cloud Video Transcoding</h4>
-          <p>Five AWS microservices that transcode video at scale, defined fully in Terraform.</p>
-          <span class="more">View project →</span>
+          <h4 data-vi="Chuyển mã video trên đám mây">Cloud Video Transcoding</h4>
+          <p data-vi="Triển khai kiến trúc 5 microservices trên AWS để xử lý chuyển mã video ở quy mô lớn, được quản lý hạ tầng hoàn toàn bằng Terraform.">Five AWS microservices that transcode video at scale, defined fully in Terraform.</p>
+          <span class="more" data-vi="Xem dự án →">View project →</span>
         </button>
         <button class="box" type="button" data-project="asys" style="--c:#2f8f9d">
           <div class="ic">⌬</div>
-          <h4>Multi-Agent Data Analysis System</h4>
-          <p>14 AI agents answer business questions, and every number traces back to a source row.</p>
-          <span class="more">View project →</span>
+          <h4 data-vi="Hệ thống phân tích dữ liệu đa tác tử">Multi-Agent Data Analysis System</h4>
+          <p data-vi="Xây dựng hệ thống với 14 AI agent chuyên biệt để phân tích dữ liệu kinh doanh, đảm bảo mọi số liệu báo cáo đều có thể truy vết về nguồn dữ liệu gốc.">14 AI agents answer business questions, and every number traces back to a source row.</p>
+          <span class="more" data-vi="Xem dự án →">View project →</span>
         </button>
       </div>
     </div></div>
@@ -359,12 +370,12 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
     <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="pm-title">
       <button class="modal-x" type="button" data-close aria-label="Close">×</button>
       <div class="modal-left">
-        <div class="pm-cap">What I did</div>
+        <div class="pm-cap" data-vi="Tôi đã làm gì">What I did</div>
         <h3 id="pm-title"></h3>
         <ul id="pm-did"></ul>
       </div>
       <div class="modal-right">
-        <div class="pm-cap">Project detail</div>
+        <div class="pm-cap" data-vi="Chi tiết dự án">Project detail</div>
         <p id="pm-desc"></p>
         <div class="pm-shots" id="pm-shots" hidden>
           <figure class="pm-main">
@@ -376,7 +387,7 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
         <div class="pm-context" id="pm-context"></div>
         <div class="pm-mets" id="pm-mets"></div>
         <div class="tech" id="pm-tech"></div>
-        <a class="go" id="pm-link" target="_blank" rel="noopener">View on GitHub →</a>
+        <a class="go" id="pm-link" target="_blank" rel="noopener" data-vi="Xem trên GitHub →">View on GitHub →</a>
       </div>
     </div>
   </div>
@@ -384,16 +395,16 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
   <!-- EXPERIENCE -->
   <section class="page" id="experience" data-page="experience">
     <div class="section"><div class="wrap">
-      <div class="sec-head"><div class="cap">My journey</div><h2>Experience &amp; Education</h2><div class="line"></div></div>
+      <div class="sec-head"><div class="cap" data-vi="Hành trình">My journey</div><h2 data-vi="Kinh nghiệm &amp; Học vấn">Experience &amp; Education</h2><div class="line"></div></div>
       <div class="xp">
 
         <div class="xp-item" style="--c:#15c39a">
           <div class="xp-year">2024 – 2026</div>
           <div class="xp-mid"><span class="xp-dot"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zM5 13.2v3.3c0 1.5 3.1 3 7 3s7-1.5 7-3v-3.3l-7 3.8-7-3.8z"/></svg></span></div>
           <div class="xp-card">
-            <h4>MSc, Data Analytics</h4>
-            <div class="xp-org">Queensland University of Technology, Australia</div>
-            <p>GPA 5.72/7.0, with High Distinctions in Business Process Analytics, Business Process Automation, Cloud Computing and the IT Industry Project. This is the academic core behind my process-mining and business-analysis focus.</p>
+            <h4 data-vi="Thạc sĩ Phân tích Dữ liệu">MSc, Data Analytics</h4>
+            <div class="xp-org" data-vi="Queensland University of Technology (QUT), Úc">Queensland University of Technology, Australia</div>
+            <p data-vi="Tốt nghiệp với điểm GPA 5.72/7.0, đạt thành tích High Distinction (Xuất sắc) ở các môn Business Process Analytics, Business Process Automation, Cloud Computing và IT Industry Project. Đây là nền tảng học thuật vững chắc hỗ trợ cho định hướng chuyên sâu về phân tích nghiệp vụ và process mining của tôi.">GPA 5.72/7.0, with High Distinctions in Business Process Analytics, Business Process Automation, Cloud Computing and the IT Industry Project. This is the academic core behind my process-mining and business-analysis focus.</p>
           </div>
         </div>
 
@@ -401,9 +412,9 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
           <div class="xp-year">2021 – 2023</div>
           <div class="xp-mid"><span class="xp-dot"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M10 4h4a2 2 0 0 1 2 2v1h4a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h4V6a2 2 0 0 1 2-2zm0 3h4V6h-4v1z"/></svg></span></div>
           <div class="xp-card">
-            <h4>Import &amp; Export Officer</h4>
+            <h4 data-vi="Nhân viên Xuất nhập khẩu">Import &amp; Export Officer</h4>
             <div class="xp-org">Ngan Hanh Plastic &amp; Packaging JSC</div>
-            <p>Ran 130–150 commercial contracts a year across suppliers, warehouse and finance. I owned inventory and customs paperwork, and traced stock variances back to their root cause in the process. That work gave me the operational grounding behind my analytics.</p>
+            <p data-vi="Chịu trách nhiệm quản lý và vận hành 130–150 hợp đồng thương mại mỗi năm, điều phối luồng công việc giữa các nhà cung cấp, bộ phận kho bãi và phòng tài chính. Quản lý hàng tồn kho, chứng từ hải quan và phân tích nguyên nhân gốc rễ của các chênh lệch số liệu trong quy trình. Vị trí này mang lại cho tôi góc nhìn sâu sắc về vận hành thực tế - nền tảng quan trọng cho các kỹ năng phân tích sau này.">Ran 130–150 commercial contracts a year across suppliers, warehouse and finance. I owned inventory and customs paperwork, and traced stock variances back to their root cause in the process. That work gave me the operational grounding behind my analytics.</p>
           </div>
         </div>
 
@@ -411,16 +422,16 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
           <div class="xp-year">2019 – 2021</div>
           <div class="xp-mid"><span class="xp-dot"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12 3 1 9l11 6 9-4.9V17h2V9L12 3zM5 13.2v3.3c0 1.5 3.1 3 7 3s7-1.5 7-3v-3.3l-7 3.8-7-3.8z"/></svg></span></div>
           <div class="xp-card">
-            <h4>BBus, Logistics &amp; Supply Chain Management</h4>
-            <div class="xp-org">RMIT University, Vietnam</div>
-            <p>Foundation in logistics and supply-chain operations, recognised by the Chartered Institute of Logistics and Transport (CILT).</p>
+            <h4 data-vi="Cử nhân Kinh doanh, Quản trị Logistics &amp; Chuỗi cung ứng">BBus, Logistics &amp; Supply Chain Management</h4>
+            <div class="xp-org" data-vi="Đại học RMIT Việt Nam">RMIT University, Vietnam</div>
+            <p data-vi="Xây dựng nền tảng kiến thức vững chắc về vận hành chuỗi cung ứng và logistics, chương trình được công nhận bởi Viện Nghiên cứu Logistics và Vận tải (CILT).">Foundation in logistics and supply-chain operations, recognised by the Chartered Institute of Logistics and Transport (CILT).</p>
           </div>
         </div>
 
         <div class="xp-langs">
-          <span><b>Vietnamese</b> Native</span>
-          <span><b>English</b> IELTS 6.0 · TOEIC 795</span>
-          <span><b>Japanese</b> JLPT N3</span>
+          <span data-vi="<b>Tiếng Việt</b> Bản ngữ"><b>Vietnamese</b> Native</span>
+          <span data-vi="<b>Tiếng Anh</b> IELTS 6.0 · TOEIC 795"><b>English</b> IELTS 6.0 · TOEIC 795</span>
+          <span data-vi="<b>Tiếng Nhật</b> JLPT N3"><b>Japanese</b> JLPT N3</span>
         </div>
 
       </div>
@@ -432,11 +443,11 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
   <!-- CONTACT -->
   <section class="page" id="contact" data-page="contact">
     <div class="contact"><div class="wrap">
-      <div class="cap accent" style="letter-spacing:.28em;text-transform:uppercase;font-size:.8rem">Get in touch</div>
-      <h2 style="margin-top:10px">Let's talk about process &amp; data</h2>
-      <p>Open to Business Analyst, Data Analyst and Process / BPM Analyst roles, on-site in Hanoi, Vietnam.</p>
+      <div class="cap accent" style="letter-spacing:.28em;text-transform:uppercase;font-size:.8rem" data-vi="Liên hệ">Get in touch</div>
+      <h2 style="margin-top:10px" data-vi="Cùng trao đổi về quy trình &amp; dữ liệu">Let's talk about process &amp; data</h2>
+      <p data-vi="Sẵn sàng cho các vị trí Business Analyst, Data Analyst và Process / BPM Analyst, làm việc trực tiếp tại Hà Nội, Việt Nam.">Open to Business Analyst, Data Analyst and Process / BPM Analyst roles, on-site in Hanoi, Vietnam.</p>
       <div class="social">
-        <a class="btn btn-a" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lenamphong2000@gmail.com" target="_blank" rel="noopener">Email me</a>
+        <a class="btn btn-a" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lenamphong2000@gmail.com" target="_blank" rel="noopener" data-vi="Gửi email">Email me</a>
         <a class="btn btn-g" href="https://www.linkedin.com/in/phongnamle/" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn btn-g" href="https://github.com/Peterle220220" target="_blank" rel="noopener">GitHub</a>
       </div>
@@ -444,9 +455,36 @@ footer{border-top:1px solid var(--line); padding:26px 0; text-align:center; colo
   </section>
 </main>
 
-<footer>© 2026 Le Nam Phong · Business &amp; Data Analyst</footer>
+<footer data-vi="© 2026 Le Nam Phong · Phân tích Nghiệp vụ &amp; Dữ liệu">© 2026 Le Nam Phong · Business &amp; Data Analyst</footer>
 
 <script>
+/* Language (EN / VN): elements carry their Vietnamese HTML in data-vi; the
+   English original is snapshotted on load so switching back is lossless. */
+let lang='en';
+const langHooks=[];
+const i18nEls=[...document.querySelectorAll('[data-vi]')];
+i18nEls.forEach(el=>el.dataset.en=el.innerHTML);
+const i18nAlts=[...document.querySelectorAll('[data-vi-alt]')];
+i18nAlts.forEach(el=>el.dataset.enAlt=el.alt);
+const metaDesc=document.querySelector('meta[name="description"]');
+const i18nMeta={
+  en:{title:document.title, desc:metaDesc.content},
+  vi:{title:'Le Nam Phong, Chuyên viên Phân tích Nghiệp vụ & Dữ liệu',
+      desc:'Le Nam Phong, Chuyên viên Phân tích Nghiệp vụ và Dữ liệu. Khai phá quy trình, BPMN, tự động hóa quy trình. Thạc sĩ Phân tích Dữ liệu, QUT.'}
+};
+function setLang(l,save){
+  lang = l==='vi' ? 'vi' : 'en';
+  const vi = lang==='vi';
+  document.documentElement.lang=lang;
+  i18nEls.forEach(el=>el.innerHTML = vi ? el.dataset.vi : el.dataset.en);
+  i18nAlts.forEach(el=>el.alt = vi ? el.dataset.viAlt : el.dataset.enAlt);
+  document.title=i18nMeta[lang].title; metaDesc.content=i18nMeta[lang].desc;
+  document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.lang===lang)));
+  if(save){ try{ localStorage.setItem('lang',lang); }catch(e){} }
+  langHooks.forEach(fn=>fn());
+}
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang,true)));
+
 const nav=document.getElementById('nav');
 const links=document.querySelectorAll('.navlinks a');
 
@@ -518,7 +556,18 @@ document.querySelectorAll('.page').forEach(s=>spy.observe(s));
       context:'Dataset: BPI Challenge 2019 (4TU.ResearchData). MSc Data Analytics, Business Process Analytics, QUT.',
       mets:[['25.4%','cases &gt; 70 days'],['48.2d','mean clearing'],['97.1d','90th percentile'],['~80%','slow cases in Packaging'],['~48%','from top 3 vendors']],
       tech:['Signavio','Celonis','Disco','Python','pandas','BPMN'],
-      link:'https://github.com/Peterle220220/process-mining-invoice-bottleneck'
+      link:'https://github.com/Peterle220220/process-mining-invoice-bottleneck',
+      vi:{
+        title:'Khai phá quy trình: Điểm nghẽn thanh toán hóa đơn (P2P)',
+        did:['Chuyển lời phàn nàn mơ hồ "hóa đơn xử lý chậm" thành một mục tiêu được đo lường và định giá cụ thể trên quy trình Purchase-to-Pay thực tế.',
+             'Phân tích toàn bộ luồng P2P bằng Disco và Signavio, xác định khâu thanh toán hóa đơn là điểm nghẽn chính trong hoạt động thường nhật có khối lượng lớn.',
+             'Dùng phân tích tuân thủ (conformance) trên Celonis để liên kết độ trễ với các hoạt động ngoại lệ như khóa thanh toán.',
+             'Viết script Python/pandas xử lý theo từng khối trên ~1,6 triệu sự kiện để tính thời gian thanh toán (Record Invoice Receipt → Clear Invoice) cho từng case.',
+             'Phân tích nguyên nhân gốc rễ của các trường hợp chậm trễ dựa trên nhóm chi phí và nhà cung cấp, rồi đề xuất ngưỡng leo thang 30/45/60 ngày.'],
+        desc:'Phân tích nhật ký mua hàng BPI Challenge 2019 với khoảng 1,6 triệu sự kiện và 183.161 case có thể thanh toán, nhằm tìm chính xác nơi hóa đơn bị ách tắc giữa lúc nhận và lúc thanh toán, cũng như chi phí về vốn lưu động và niềm tin của nhà cung cấp. Độ trễ tập trung ở một số điểm chứ không lan khắp doanh nghiệp, nên giải pháp nhắm vào một vài nhà cung cấp thay vì thiết kế lại toàn bộ.',
+        context:'Dữ liệu: BPI Challenge 2019 (4TU.ResearchData). Thạc sĩ Phân tích Dữ liệu, môn Business Process Analytics, QUT.',
+        mets:[['25.4%','case &gt; 70 ngày'],['48.2d','thời gian TB'],['97.1d','bách phân vị 90'],['~80%','case chậm thuộc Packaging'],['~48%','từ 3 nhà cung cấp lớn nhất']]
+      }
     },
     bpa:{
       title:'Business Process Automation: As-Is to Executable To-Be',
@@ -531,7 +580,17 @@ document.querySelectorAll('.page').forEach(s=>spy.observe(s));
       context:'MSc Data Analytics, Business Process Automation, QUT. Original student work.',
       mets:[],
       tech:['BPMN 2.0','Bonita','Business Data Model'],
-      link:'https://github.com/Peterle220220/business-process-automation'
+      link:'https://github.com/Peterle220220/business-process-automation',
+      vi:{
+        title:'Tự động hóa quy trình nghiệp vụ: Từ As-Is đến To-Be thực thi được',
+        did:['Khảo sát và mô hình hóa quy trình hiện trạng bằng chuẩn BPMN 2.0, bao gồm các thành phần lanes, gateways và events.',
+             'Thiết kế lại quy trình to-be cải tiến, nhắm vào các bước thủ công, dễ sai sót.',
+             'Xây dựng Business Data Model cho các đối tượng dữ liệu đi qua quy trình.',
+             'Triển khai quy trình to-be thành ứng dụng chạy thực tế trên Bonita BPM, bao gồm luồng chính và các luồng ngoại lệ quan trọng.',
+             'Xây dựng form người dùng và kết nối luồng dữ liệu để quy trình chạy như phần mềm hoàn chỉnh, không chỉ là sơ đồ.'],
+        desc:'Thực hiện chuyển đổi số toàn diện một quy trình nghiệp vụ: từ bước phân tích hiện trạng đến việc triển khai tự động hóa quy trình mục tiêu, vận hành thực tế trên BPM engine. Đây là một ứng dụng thực thi được với form, gateway và xử lý ngoại lệ, không chỉ là một mô hình.',
+        context:'Thạc sĩ Phân tích Dữ liệu, môn Business Process Automation, QUT. Bài làm gốc của sinh viên.'
+      }
     },
     ir:{
       title:'Information Retrieval & Ranking',
@@ -544,7 +603,17 @@ document.querySelectorAll('.page').forEach(s=>spy.observe(s));
       context:'MSc Data Analytics, QUT. Uses course-provided datasets (not redistributed).',
       mets:[],
       tech:['Python','TF·IDF','IR','Text mining','RAG'],
-      link:'https://github.com/Peterle220220/nlp-information-retrieval'
+      link:'https://github.com/Peterle220220/nlp-information-retrieval',
+      vi:{
+        title:'Truy xuất & Xếp hạng thông tin',
+        did:['Xây dựng toàn bộ pipeline IR bằng Python: tách từ, loại bỏ stopword và chuẩn hóa từ.',
+             'Biểu diễn văn bản và truy vấn với trọng số từ kiểu TF·IDF.',
+             'Xây dựng cơ chế chấm điểm độ liên quan và xếp hạng, sau đó đánh giá chất lượng xếp hạng bằng các chỉ số IR tiêu chuẩn.',
+             'So sánh các mô hình để đo lường cách tiếp cận nào thực sự truy xuất tài liệu liên quan tốt hơn.',
+             'Tái sử dụng cơ chế chấm điểm truy xuất để chọn đoạn ngữ cảnh cho prompt kiểu RAG.'],
+        desc:'Tự xây dựng từ đầu và, quan trọng không kém, đánh giá các mô hình truy xuất và xếp hạng thông tin bằng Python, biến văn bản phi cấu trúc thành kết quả xếp hạng đo lường và so sánh được thay vì chỉ gọi thư viện.',
+        context:'Thạc sĩ Phân tích Dữ liệu, QUT. Sử dụng bộ dữ liệu của môn học (không phân phối lại).'
+      }
     },
     ops:{
       title:'Brisbane 2032 Games Operations Platform',
@@ -557,7 +626,18 @@ document.querySelectorAll('.page').forEach(s=>spy.observe(s));
       context:'Team capstone for a real government client. Backend: 30+ versioned REST endpoints (Go/Gin + PostgreSQL).',
       mets:[['30+','REST endpoints'],['5','transport modes'],['3','severity grades']],
       tech:['Next.js','React','TypeScript','Go','PostgreSQL','Docker','GTFS'],
-      link:'https://github.com/Peterle220220/Olympic'
+      link:'https://github.com/Peterle220220/Olympic',
+      vi:{
+        title:'Nền tảng vận hành Thế vận hội Brisbane 2032',
+        did:['Phụ trách phần quản trị/vận hành: trực quan hóa dòng người theo thời gian thực và giao diện điều phối nguồn lực theo địa điểm và loại hình.',
+             'Xây dựng thuật toán quản lý đám đông sau sự kiện, mô hình hóa quá trình giải tán bằng hàm phân phối chuẩn (Normal CDF) và phân bổ lượt rời đi cho tàu, xe buýt, phà và tàu điện.',
+             'Phân bổ người tham dự về các điểm dừng gần đó theo trọng số trọng lực–khoảng cách và phát hiện điểm nghẽn bằng cách so sánh nhu cầu với năng lực theo giờ.',
+             'Phân cấp mức độ nghiêm trọng (cảnh báo → nghiêm trọng → khẩn cấp) và đề xuất điều động xe buýt, phương tiện và lực lượng khẩn cấp.',
+             'Tích hợp dữ liệu giao thông thực tế của Brisbane qua pipeline GTFS; bàn giao cho khách hàng chính phủ thực trong nhóm làm việc theo Agile.'],
+        desc:'Nền tảng vận hành cho Thế vận hội 2032, là đồ án tốt nghiệp thạc sĩ: một dashboard Next.js cùng mô hình dự báo dòng người, dự đoán điểm nghẽn giao thông sau mỗi sự kiện và đề xuất nguồn lực để giải tỏa.',
+        context:'Đồ án nhóm cho khách hàng chính phủ thực. Backend: hơn 30 REST endpoint có phiên bản (Go/Gin + PostgreSQL).',
+        mets:[['30+','REST endpoint'],['5','loại phương tiện'],['3','mức độ nghiêm trọng']]
+      }
     },
     cloud:{
       title:'Cloud Video Transcoding Platform',
@@ -570,7 +650,18 @@ document.querySelectorAll('.page').forEach(s=>spy.observe(s));
       context:'MSc Data Analytics, Cloud Computing, QUT (High Distinction). Scaled from 1 to 5 tasks under load, then back to idle. The repository is private because it holds university coursework; a walkthrough is available on request.',
       mets:[['5','ECS microservices'],['1→5','tasks autoscaled'],['3','DLQ retries']],
       tech:['AWS','ECS Fargate','SQS','Lambda','Terraform','Docker','React','FFmpeg'],
-      link:''
+      link:'',
+      vi:{
+        title:'Nền tảng chuyển mã video trên đám mây',
+        did:['Thiết kế năm microservice ECS Fargate độc lập (web, auth, upload, transcoding, SQS worker) phía sau ALB với định tuyến theo đường dẫn.',
+             'Chạy chuyển mã FFmpeg dưới dạng tác vụ nền được kích hoạt bởi SQS, tách việc upload khỏi khâu xử lý nặng.',
+             'Xây dựng autoscaling theo chỉ số tùy chỉnh: một Lambda tính MessagesPerTask (độ dài hàng đợi ÷ số task đang chạy) mỗi phút, để việc mở rộng bám theo khối lượng tồn đọng thực tế chứ không chỉ theo CPU.',
+             'Thêm dead-letter queue với chính sách thử lại 3 lần và lưu trữ 14 ngày để tác vụ lỗi được cô lập, không bị mất.',
+             'Định nghĩa toàn bộ hạ tầng (ECS, ALB, SQS/DLQ, Lambda, EventBridge, CloudFront, VPC) bằng Terraform có thể tái tạo.'],
+        desc:'Nền tảng cloud-native cho phép người dùng upload video và FFmpeg chuyển mã ở quy mô lớn dưới nền. Việc mở rộng được điều khiển bởi lượng tồn đọng trong hàng đợi, và toàn bộ hạ tầng là mã nguồn có thể dựng lại từ đầu.',
+        context:'Thạc sĩ Phân tích Dữ liệu, môn Cloud Computing, QUT (High Distinction). Tự mở rộng từ 1 lên 5 task khi tải cao, rồi trở về trạng thái nghỉ. Repository ở chế độ riêng tư vì chứa bài tập của trường đại học; có thể trình bày chi tiết khi được yêu cầu.',
+        mets:[['5','microservice ECS'],['1→5','task tự mở rộng'],['3','lần thử lại DLQ']]
+      }
     },
     asys:{
       title:'Multi-Agent Data Analysis System',
@@ -591,20 +682,39 @@ document.querySelectorAll('.page').forEach(s=>spy.observe(s));
         ['shots/asys-bi.jpg','Self-service BI: drag dimensions and measures, then inspect the table and the query that ran.'],
         ['shots/asys-gate.jpg','Human approval gate: no cleaning rule runs until the user ticks it.']
       ],
-      link:'https://github.com/Peterle220220/analysis-system'
+      link:'https://github.com/Peterle220220/analysis-system',
+      vi:{
+        title:'Hệ thống phân tích dữ liệu đa tác tử',
+        did:['Thiết kế một Manager lập kế hoạch cho từng câu hỏi, phân việc cho 13 agent chuyên biệt (nạp dữ liệu, profiling, làm sạch, SQL, kiểm định, khai phá quy trình, báo cáo) rồi tổng hợp kết quả.',
+             'Khiến việc bịa số là không thể: mô hình viết câu với placeholder, mã nguồn điền mọi con số, và câu nào chứa chữ số do mô hình tự gõ sẽ bị loại bỏ.',
+             'Thêm hai cổng phê duyệt của con người, để hệ thống không bao giờ tự làm sạch dữ liệu hay công bố kết luận.',
+             'Kiểm soát SQL do mô hình viết (chỉ SELECT/CREATE VIEW, không truy cập bảng ngoài phạm vi) và chạy trên DuckDB in-memory qua các lớp Parquet từ raw đến mart.',
+             'Đọc bảng tính, PDF, Word, email, hình ảnh (OCR) và âm thanh (speech-to-text), xuất ra Excel, Word, CSV hoặc HTML cho Power BI và Tableau.',
+             'Tái cấu trúc mã nguồn theo Clean Architecture với DDD, đảm bảo phân lớp bằng AST test (0 vi phạm), mypy strict và 2.987 test.'],
+        desc:'Nền tảng đa tác tử chạy on-premise cho phân tích nghiệp vụ. Bạn upload file, phê duyệt đề xuất làm sạch, rồi đặt câu hỏi bao nhiêu lần tùy thích. Mỗi câu trả lời đi kèm bằng chứng cho từng con số, và những gì không tìm thấy cũng được báo cáo cùng những gì tìm thấy.',
+        context:'Dự án cá nhân. Giao diện web Next.js cùng CLI asys; chạy cục bộ bằng Docker. Ở chế độ handoff, không có dữ liệu nào rời khỏi máy ($0); toàn bộ quá trình kiểm thử với API mô hình thực tế tốn khoảng $7.6 cho 220 lượt gọi. Toàn bộ mã nguồn được công khai trên GitHub.',
+        mets:[['14','agent (Manager + 13)'],['90.7%','độ phủ test'],['2,987','test tự động'],['0','vi phạm phân lớp'],['$7.6','tổng chi phí API']],
+        shotCaps:['Câu trả lời trực tiếp kèm cảnh báo độ tin cậy và phạm vi dữ liệu chính xác (220 trên 6.819 dòng).',
+                  'Mỗi kết luận trích dẫn tệp bằng chứng, có biểu đồ riêng và ô hỏi tiếp.',
+                  'Dashboard xây từ sao kê ngân hàng đã công bố; số liệu được tính lại mỗi lần mở.',
+                  'BI tự phục vụ: kéo thả dimension và measure, rồi xem bảng kết quả cùng câu truy vấn đã chạy.',
+                  'Cổng phê duyệt của con người: không quy tắc làm sạch nào chạy cho đến khi người dùng đánh dấu.']
+      }
     }
   };
   const q=id=>document.getElementById(id);
-  let opener=null;
-  function open(id){
-    const d=data[id]; if(!d) return;
+  let opener=null, current=null;
+  function render(id){
+    const base=data[id]; if(!base) return false;
+    const d = lang==='vi' && base.vi ? Object.assign({},base,base.vi) : base;
+    current=id;
     q('pm-title').textContent=d.title;
     q('pm-did').innerHTML=d.did.map(x=>'<li>'+x+'</li>').join('');
     q('pm-desc').textContent=d.desc;
     const ctx=q('pm-context'); ctx.textContent=d.context||''; ctx.style.display=d.context?'':'none';
     q('pm-mets').innerHTML=(d.mets||[]).map(m=>'<div><b>'+m[0]+'</b><small>'+m[1]+'</small></div>').join('');
     q('pm-tech').innerHTML=d.tech.map(t=>'<span>'+t+'</span>').join('');
-    const shots=d.shots||[];
+    const shots=(d.shots||[]).map((s,i)=>[s[0], (d.shotCaps&&d.shotCaps[i])||s[1]]);
     q('pm-shots').hidden=!shots.length;
     modal.querySelector('.modal-card').classList.toggle('wide',shots.length>0);
     q('pm-thumbs').innerHTML=shots.map((s,i)=>'<button type="button" data-i="'+i+'" aria-label="Screenshot '+(i+1)+'"><img src="'+s[0]+'" alt=""></button>').join('');
@@ -615,15 +725,29 @@ document.querySelectorAll('.page').forEach(s=>spy.observe(s));
     };
     q('pm-thumbs').onclick=e=>{ const b=e.target.closest('button'); if(b) pick(+b.dataset.i); };
     if(shots.length) pick(0);
+    q('pm-thumbs').querySelectorAll('button').forEach((b,i)=>b.setAttribute('aria-label',(lang==='vi'?'Ảnh ':'Screenshot ')+(i+1)));
     const go=q('pm-link'); go.style.display=d.link?'':'none'; if(d.link) go.href=d.link;
+    return true;
+  }
+  function open(id){
+    if(!render(id)) return;
     modal.hidden=false;
     document.body.style.overflow='hidden';
     modal.querySelector('.modal-x').focus();
   }
-  function close(){ modal.hidden=true; document.body.style.overflow=''; if(opener) opener.focus(); }
+  function close(){ modal.hidden=true; current=null; document.body.style.overflow=''; if(opener) opener.focus(); }
+  langHooks.push(()=>{ if(!modal.hidden && current) render(current); });
   document.querySelectorAll('.svc .box').forEach(b=>b.addEventListener('click',()=>{ opener=b; open(b.dataset.project); }));
   modal.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',close));
   document.addEventListener('keydown',e=>{ if(e.key==='Escape' && !modal.hidden) close(); });
+})();
+
+/* initial language: saved choice, else Vietnamese browsers get VN, everyone else EN */
+(function(){
+  let saved=null;
+  try{ saved=localStorage.getItem('lang'); }catch(e){}
+  const guess=(navigator.language||'').toLowerCase().startsWith('vi') ? 'vi' : 'en';
+  setLang(saved || guess);
 })();
 
 /* if the page opens with a hash, jump to that section */
