@@ -567,22 +567,22 @@ document.querySelectorAll('.page').forEach(s=>spy.observe(s));
            'Added dead-letter queues with a 3-retry redrive policy and 14-day retention so failed jobs are isolated, not lost.',
            'Defined the whole stack (ECS, ALB, SQS/DLQs, Lambda, EventBridge, CloudFront, VPC) as reproducible Terraform.'],
       desc:'A cloud-native platform where users upload videos and FFmpeg transcodes them at scale in the background. Scaling is driven by queue backlog, and the entire infrastructure is code that can be reproduced from scratch.',
-      context:'MSc Data Analytics, Cloud Computing, QUT. Scaled from 1 to 5 tasks under load, then back to idle.',
+      context:'MSc Data Analytics, Cloud Computing, QUT (High Distinction). Scaled from 1 to 5 tasks under load, then back to idle. The repository is private because it holds university coursework; a walkthrough is available on request.',
       mets:[['5','ECS microservices'],['1→5','tasks autoscaled'],['3','DLQ retries']],
       tech:['AWS','ECS Fargate','SQS','Lambda','Terraform','Docker','React','FFmpeg'],
-      link:'https://github.com/Peterle220220/video-api'
+      link:''
     },
     asys:{
       title:'Multi-Agent Data Analysis System',
-      did:['Designed a Manager that plans each question, dispatches work to 14 scoped agents (ingest, profiling, cleaning, SQL, validation, process mining, reporting) and merges the results.',
+      did:['Designed a Manager that plans each question, dispatches work to 13 scoped agents (ingest, profiling, cleaning, SQL, validation, process mining, reporting) and merges the results.',
            'Made numbers impossible to invent: the model writes sentences with placeholders, code fills in every figure, and any sentence with a model-typed digit is dropped.',
            'Added two human approval gates, so the system never cleans data or publishes a conclusion on its own.',
            'Guarded model-written SQL (SELECT/CREATE VIEW only, no out-of-scope tables) and ran it on in-memory DuckDB over Parquet layers from raw to mart.',
            'Read tables, PDF, Word, email, images (OCR) and audio (speech-to-text), with export to Excel, Word, CSV or HTML for Power BI and Tableau.',
            'Refactored the codebase into Clean Architecture with DDD, and enforced the layers with AST tests (0 violations), strict mypy and 2,987 tests.'],
       desc:'An on-premise, multi-agent platform for business analysis. You upload a file, approve the proposed cleaning, then ask questions as often as you like. Each answer comes with evidence for every figure, and what could not be found is reported alongside what was.',
-      context:'Personal project. Next.js web UI plus the asys CLI; runs locally with Docker, and no data leaves the machine by default ($0 API cost). Source code is private; the GitHub link opens a public showcase with the architecture and screenshots.',
-      mets:[['14','specialised agents'],['90.7%','test coverage'],['2,987','automated tests'],['0','layer violations'],['$0','default API cost']],
+      context:'Personal project. Next.js web UI plus the asys CLI; runs locally with Docker. In handoff mode no data leaves the machine ($0); all testing against real model APIs cost about $7.6 for 220 calls. The full source code is public on GitHub.',
+      mets:[['14','agents (Manager + 13)'],['90.7%','test coverage'],['2,987','automated tests'],['0','layer violations'],['$7.6','total API spend']],
       tech:['Python','FastAPI','Next.js','TypeScript','DuckDB','Parquet','Docker','LLM agents','DDD'],
       shots:[
         ['shots/asys-answer.jpg','A direct answer with a confidence warning and the exact data scope (220 of 6,819 rows).'],
@@ -591,7 +591,7 @@ document.querySelectorAll('.page').forEach(s=>spy.observe(s));
         ['shots/asys-bi.jpg','Self-service BI: drag dimensions and measures, then inspect the table and the query that ran.'],
         ['shots/asys-gate.jpg','Human approval gate: no cleaning rule runs until the user ticks it.']
       ],
-      link:'https://github.com/Peterle220220/analysis-system-showcase'
+      link:'https://github.com/Peterle220220/analysis-system'
     }
   };
   const q=id=>document.getElementById(id);
@@ -615,7 +615,8 @@ document.querySelectorAll('.page').forEach(s=>spy.observe(s));
     };
     q('pm-thumbs').onclick=e=>{ const b=e.target.closest('button'); if(b) pick(+b.dataset.i); };
     if(shots.length) pick(0);
-    q('pm-link').href=d.link;    modal.hidden=false;
+    const go=q('pm-link'); go.style.display=d.link?'':'none'; if(d.link) go.href=d.link;
+    modal.hidden=false;
     document.body.style.overflow='hidden';
     modal.querySelector('.modal-x').focus();
   }
